@@ -1,0 +1,64 @@
+version: '3.8'
+
+services:
+  # FastAPI High-Concurrency Async API Server
+  api:
+    build: .
+    container_name: eklavya_backend_api
+    restart: always
+    ports:
+      - "8001:8001"
+    environment:
+      - POSTGRES_SERVER=postgres
+      - POSTGRES_USER=eklavya_admin
+      - POSTGRES_PASSWORD=eklavya_secret_pass
+      - POSTGRES_DB=eklavya_scholarships
+      - REDIS_HOST=redis
+    depends_on:
+      - postgres
+      - redis
+    command: uvicorn app.main:app --host 0.0.0.0 --port 8001 --workers 4
+
+  # Celery Background Worker for DigiLocker & External Govt APIs
+  celery_worker:
+    build: .
+    container_name: eklavya_celery_worker
+    restart: always
+    environment:
+      - POSTGRES_SERVER=postgres
+      - POSTGRES_USER=eklavya_admin
+      - POSTGRES_PASSWORD=eklavya_secret_pass
+      - POSTGRES_DB=eklavya_scholarships
+      - REDIS_HOST=redis
+    depends_on:
+      - postgres
+      - redis
+    command: celery -A app.core.celery_app.celery_app worker --loglevel=info --concurrency=4
+
+  # PostgreSQL Database Engine
+  postgres:
+    image: postgres:16-alpine
+    container_name: eklavya_postgres
+    restart: always
+    environment:
+      POSTGRES_USER: eklavya_admin
+      POSTGRES_PASSWORD: eklavya_secret_pass
+      POSTGRES_DB: eklavya_scholarships
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  # Redis Broker for Task Queues & Caching
+  redis:
+    image: redis:7-alpine
+    container_name: eklavya_redis
+    restart: always
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+
+volumes:
+  postgres_data:
+  redis_data:
