@@ -1,43 +1,27 @@
-/* ==========================================================================
-   Project Eklavya - National Unified Scholarship Portal
-   Official NIC & GIGW 3.0 Government Design System Tokens
-   Ministry of Tribal Affairs, Government of India
-   ========================================================================== */
-
 :root {
-  /* Official Government Palette */
-  --gov-navy-primary: #0a3d62;   /* Formal NIC Navy */
-  --gov-navy-dark: #072a44;      /* Deep Header Navy */
+  --gov-navy-primary: #0a3d62;
+  --gov-navy-dark: #072a44;
   --gov-navy-light: #1e4d7a;
-  
-  --gov-saffron: #ff9933;        /* Indian Saffron Accent */
+  --gov-saffron: #ff9933;
   --gov-saffron-dark: #c2410c;
   --gov-saffron-light: #fff7ed;
-
-  --gov-green: #138808;          /* India Sovereign Green (Success) */
+  --gov-green: #138808;
   --gov-green-light: #f0fdf4;
   --gov-green-border: #86efac;
-
-  --gov-surface-canvas: #f4f6f8; /* Crisp Government Off-White Canvas */
+  --gov-surface-canvas: #f4f6f8;
   --gov-surface-card: #ffffff;
   --gov-border-subtle: #d1d5db;
   --gov-border-card: #e5e7eb;
-
   --gov-text-primary: #111827;
   --gov-text-secondary: #4b5563;
   --gov-text-muted: #6b7280;
-
-  /* Sharp Formal Edges (GIGW 3.0 Standard) */
   --radius-sharp: 3px;
   --radius-card: 4px;
   --radius-button: 4px;
-
-  /* Subtle Crisp Elevation */
   --shadow-subtle: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
   --shadow-card: 0 1px 3px 0 rgba(0, 0, 0, 0.08), 0 1px 2px -1px rgba(0, 0, 0, 0.04);
 }
 
-/* Global Typography & Canvas */
 body {
   font-family: 'Inter', 'Roboto', 'Noto Sans Devanagari', -apple-system, BlinkMacSystemFont, sans-serif;
   background-color: var(--gov-surface-canvas);
@@ -49,7 +33,6 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-/* Skip to Main Content Accessibility link */
 .skip-link {
   position: absolute;
   top: -40px;
@@ -66,7 +49,6 @@ body {
   top: 10px;
 }
 
-/* High Contrast Mode (Government Accessibility Standard) */
 body.high-contrast {
   background-color: #000000 !important;
   color: #ffffff !important;
@@ -110,7 +92,6 @@ body.high-contrast .bg-blue-50 {
   border-color: #ffff00 !important;
 }
 
-/* National Tricolor Top Stripe */
 .tricolor-stripe {
   height: 4px;
   width: 100%;
@@ -125,7 +106,6 @@ body.high-contrast .bg-blue-50 {
   );
 }
 
-/* Formal Institutional Cards */
 .gov-card {
   background-color: #ffffff;
   border: 1px solid #e2e8f0;
@@ -139,7 +119,6 @@ body.high-contrast .bg-blue-50 {
   background-color: #f8fafc;
 }
 
-/* Material Symbols alignment */
 .material-symbols-outlined {
   font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
   display: inline-block;
@@ -151,7 +130,6 @@ body.high-contrast .bg-blue-50 {
   font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
 }
 
-/* Page transitions */
 .page-view {
   display: none;
 }
@@ -164,7 +142,6 @@ body.high-contrast .bg-blue-50 {
   to { opacity: 1; }
 }
 
-/* Formal Solid Progress Stepper Lines */
 .stepper-line {
   position: absolute;
   left: 11px;
@@ -178,7 +155,6 @@ body.high-contrast .bg-blue-50 {
   background-color: #138808;
 }
 
-/* Currency tabular font */
 .currency-amount {
   font-family: 'Roboto Mono', 'Inter', monospace;
   font-feature-settings: 'tnum';

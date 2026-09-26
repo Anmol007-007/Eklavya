@@ -1,7 +1,3 @@
-// Eklavya - National Unified Scholarship Portal
-// Ministry of Tribal Affairs, Government of India
-// Candidate Context: Anmol Soni (OBC, Gyan Ganga College Of Technology)
-
 const studentProfile = {
   name: "Anmol Soni",
   dob: "03/03/2005",
@@ -10,7 +6,7 @@ const studentProfile = {
   rollNo: "0208AD231011",
   income: "₹ 1,80,000.00",
   phone: "+91 98260 12345",
-  email: "anmol.soni@ggct.ac.in",
+  email: "aids23.anmolsoni@ggct.co.in",
   bankName: "State Bank of India",
   bankAccount: "Aadhaar Seeded Account (XXXX-XXXX-4109)",
   dbtActive: true
@@ -26,7 +22,6 @@ const appState = {
   fontSize: 'normal'
 };
 
-// Official Multilingual Translations Dictionary
 const i18n = {
   en: {
     langName: "English",
@@ -136,7 +131,6 @@ document.addEventListener('DOMContentLoaded', () => {
   renderProfileData();
   setLanguage('hi');
 
-  // Close dropdowns when clicking outside
   document.addEventListener('click', (e) => {
     const profileDropdown = document.getElementById('profileDropdown');
     const profileBtn = document.getElementById('userProfileDropdownBtn');
@@ -153,7 +147,6 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
-// Accessibility: Font Resizing
 function setFontSize(size) {
   appState.fontSize = size;
   const root = document.documentElement;
@@ -166,7 +159,6 @@ function setFontSize(size) {
   }
 }
 
-// Accessibility: High Contrast Mode
 function toggleHighContrast() {
   appState.isHighContrast = !appState.isHighContrast;
   document.body.classList.toggle('high-contrast', appState.isHighContrast);
@@ -177,7 +169,6 @@ function alertScreenReaderInfo() {
   alert("Screen Reader Access:\nThis portal is built adhering to GIGW 3.0 & WCAG 2.2 AAA guidelines. It is fully compatible with NVDA, JAWS, and Android TalkBack.");
 }
 
-// User Profile Header Dropdown Toggle
 function toggleProfileDropdown(e) {
   if (e) e.stopPropagation();
   const dropdown = document.getElementById('profileDropdown');
@@ -189,7 +180,6 @@ function toggleProfileDropdown(e) {
   }
 }
 
-// Side Navigation Drawer Toggle
 function toggleSideMenu() {
   const drawer = document.getElementById('sideNavDrawer');
   const overlay = document.getElementById('sideNavOverlay');
@@ -204,11 +194,9 @@ function toggleSideMenu() {
   }
 }
 
-// Multi-page Navigation
 function navigateToPage(pageId) {
   appState.currentPage = pageId;
 
-  // Toggle page visibility
   document.querySelectorAll('.page-view').forEach(page => {
     page.classList.remove('active');
   });
@@ -218,7 +206,6 @@ function navigateToPage(pageId) {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
-  // Update top horizontal navbar tabs
   const topNavMap = {
     'page-dashboard': 'topNavDashboard',
     'page-schemes': 'topNavSchemes',
@@ -238,7 +225,6 @@ function navigateToPage(pageId) {
     }
   });
 
-  // Update mobile bottom nav highlighting
   const bottomNavMap = {
     'page-dashboard': 'navBtnDashboard',
     'page-schemes': 'navBtnSchemes',
@@ -258,7 +244,6 @@ function navigateToPage(pageId) {
   });
 }
 
-// Language Switcher Dropdown
 function toggleLanguageMenu(e) {
   if (e) e.stopPropagation();
   const dropdown = document.getElementById('langDropdown');
@@ -270,11 +255,9 @@ function setLanguage(langCode) {
   appState.currentLanguage = langCode;
   const dict = i18n[langCode];
 
-  // Update button label
   const label = document.getElementById('currentLangLabel');
   if (label) label.textContent = dict.langName;
 
-  // Translate static UI strings
   const textMappings = {
     'lblGovStripGov': dict.govTitle,
     'lblGovStripMinistry': dict.ministry,
@@ -301,7 +284,6 @@ function setLanguage(langCode) {
   showToast(`Language set to ${dict.langName}`);
 }
 
-// Populate Anmol Soni's test data into the UI
 function renderProfileData() {
   const fields = {
     'topBarStudentName': studentProfile.name,
@@ -350,7 +332,6 @@ function renderProfileData() {
   }
 }
 
-// Save Profile form handler
 function saveProfile(event) {
   event.preventDefault();
   studentProfile.name = document.getElementById('editName').value;
@@ -366,7 +347,6 @@ function saveProfile(event) {
   navigateToPage('page-dashboard');
 }
 
-// DigiLocker Certificate Sync
 function syncDigiLocker() {
   const btn = document.getElementById('btnSyncDigilocker');
   if (btn) {
@@ -389,7 +369,6 @@ function syncDigiLocker() {
   }, 1200);
 }
 
-// Submit Application Form Wizard
 function submitApplicationForm() {
   showToast("Application submitted successfully. Reference: #EKL-2026-020811");
   setTimeout(() => {
@@ -401,7 +380,6 @@ function showEligibilityDetails(schemeName) {
   alert(`Eligibility Verified for ${schemeName}:\n• Category: OBC (Passed)\n• Institution: Recognized Institute (Passed)\n• Family Income Limit: < ₹2,50,000 (Passed)\n• Direct Benefit Transfer: Bank Account Seeded (Passed)`);
 }
 
-// Helpdesk Floating Chat Widget
 function toggleSahayakChat() {
   const modal = document.getElementById('sahayakChatModal');
   appState.isChatOpen = !appState.isChatOpen;
@@ -413,14 +391,42 @@ function toggleSahayakChat() {
   }
 }
 
-function sendUserChat() {
+function generateLocalChatAnswer(query) {
+  const q = query.toLowerCase();
+  if (q.includes("status") || q.includes("track") || q.includes("where") || q.includes("progress")) {
+    return "Application #MP-2024-OBC-0208 for Post-Matric OBC Scholarship is at Stage 4 (PFMS Batch Processing). College verification and District Welfare sanction are completed. Tranche 1 (₹ 22,500.00) is credited; Tranche 2 is in transit.";
+  }
+  if (q.includes("dbt") || q.includes("payment") || q.includes("money") || q.includes("disburs") || q.includes("credit") || q.includes("bank")) {
+    return "Total sanctioned scholarship grant is ₹ 45,000.00. Tranche 1 of ₹ 22,500.00 was credited directly to your Aadhaar Seeded SBI Account (XXXX-XXXX-4109) via DBT. Tranche 2 is currently awaiting final bank clearance via PFMS.";
+  }
+  if (q.includes("digilocker") || q.includes("document") || q.includes("cert") || q.includes("caste") || q.includes("income")) {
+    return "Your DigiLocker integration is active. Your OBC Caste Certificate (#MP-OBC-2023-88912) and Income Certificate (#MP-INC-2024-44102 for ₹ 1,80,000.00) are digitally verified with the Madhya Pradesh State e-District repository.";
+  }
+  if (q.includes("eligib") || q.includes("scheme") || q.includes("criteria") || q.includes("rule")) {
+    return "Based on your verified credentials (OBC Category, Family Income ₹ 1,80,000.00, GGCT Jabalpur), you are eligible for: 1) Post-Matric Scholarship for OBC Students (Technical Courses - ₹ 45,000.00/yr), and 2) Central Sector Scheme (CSSS - ₹ 20,000.00/yr).";
+  }
+  if (q.includes("college") || q.includes("nodal") || q.includes("institute") || q.includes("ggct") || q.includes("roll")) {
+    return "Your profile is registered with Gyan Ganga College Of Technology, Jabalpur under Roll Number 0208AD231011. College level verification was approved by the Institute Nodal Officer on 18 August 2024.";
+  }
+  if (q.includes("date") || q.includes("last date") || q.includes("deadline")) {
+    return "The closing deadline for Post-Matric OBC Scholarship fresh and renewal submissions for Academic Year 2024-25 is 15 November 2026. Institutional biometric KYC must be completed before 30 November 2026.";
+  }
+  if (q.includes("grievance") || q.includes("complaint") || q.includes("help") || q.includes("contact") || q.includes("phone")) {
+    return "For grievance escalation, contact the District Backward Classes Welfare Office, Jabalpur, or call the National Scholarship Toll-Free Helpline at 1800-11-2026 (Mon-Sat, 9:00 AM - 6:00 PM).";
+  }
+  if (q.includes("hi") || q.includes("hello") || q.includes("namaste")) {
+    return "Namaste Anmol Soni! I am the Eklavya Citizen Helpdesk Assistant. You can ask me about your scholarship status, DBT payment progress, DigiLocker certificates, eligibility rules, or deadlines.";
+  }
+  return `Regarding "${query}": Your verified candidate record (Anmol Soni, Roll 0208AD231011, OBC, GGCT) is mapped to the Post-Matric OBC Technical Scholarship. Tranche 1 (₹ 22,500.00) has been disbursed to your SBI account with Tranche 2 in PFMS transit. How else may I assist you?`;
+}
+
+async function sendUserChat() {
   const input = document.getElementById('chatInputText');
   const query = input.value.trim();
   if (!query) return;
 
   const chatList = document.getElementById('chatMessageList');
 
-  // Append User message
   const userMsg = document.createElement('div');
   userMsg.className = "flex items-start justify-end space-x-2";
   userMsg.innerHTML = `
@@ -433,26 +439,60 @@ function sendUserChat() {
   input.value = "";
   chatList.scrollTop = chatList.scrollHeight;
 
-  // Bot response simulation
-  setTimeout(() => {
-    let reply = `Namaste Anmol Ji. Regarding your query: "${query}", your Post-Matric OBC Scholarship tranche 1 (₹ 22,500.00) is credited to your SBI account. Tranche 2 (₹ 22,500.00) has been approved by the District Welfare Officer and is under PFMS payment processing.`;
-    
-    const botMsg = document.createElement('div');
-    botMsg.className = "flex items-start space-x-2";
-    botMsg.innerHTML = `
-      <div class="w-6 h-6 rounded bg-[#0a3d62] text-white flex items-center justify-center text-[10px] font-bold">
-        <span class="material-symbols-outlined text-[14px]">support_agent</span>
-      </div>
-      <div class="bg-white p-2.5 rounded border border-slate-200 text-slate-800 text-xs max-w-[85%] leading-relaxed shadow-xs">
-        ${reply}
-      </div>
-    `;
-    chatList.appendChild(botMsg);
-    chatList.scrollTop = chatList.scrollHeight;
-  }, 600);
+  const typingIndicator = document.createElement('div');
+  typingIndicator.id = "chatTypingIndicator";
+  typingIndicator.className = "flex items-start space-x-2 text-slate-400 text-xs italic";
+  typingIndicator.innerHTML = `
+    <div class="w-6 h-6 rounded bg-[#0a3d62] text-white flex items-center justify-center text-[10px] font-bold">
+      <span class="material-symbols-outlined text-[13px]">support_agent</span>
+    </div>
+    <div class="p-2">Helpdesk typing...</div>
+  `;
+  chatList.appendChild(typingIndicator);
+  chatList.scrollTop = chatList.scrollHeight;
+
+  let replyText = "";
+  try {
+    const res = await fetch("/api/chat", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: jsonString({ message: query })
+    });
+    if (res.ok) {
+      const data = await res.json();
+      if (data && data.reply) {
+        replyText = data.reply;
+      }
+    }
+  } catch (e) {
+    replyText = "";
+  }
+
+  if (!replyText) {
+    replyText = generateLocalChatAnswer(query);
+  }
+
+  const indicator = document.getElementById('chatTypingIndicator');
+  if (indicator) indicator.remove();
+
+  const botMsg = document.createElement('div');
+  botMsg.className = "flex items-start space-x-2";
+  botMsg.innerHTML = `
+    <div class="w-6 h-6 rounded bg-[#0a3d62] text-white flex items-center justify-center text-[10px] font-bold flex-shrink-0">
+      <span class="material-symbols-outlined text-[13px]">support_agent</span>
+    </div>
+    <div class="bg-white p-2.5 rounded border border-slate-200 text-slate-800 text-xs max-w-[85%] leading-relaxed shadow-xs">
+      ${replyText}
+    </div>
+  `;
+  chatList.appendChild(botMsg);
+  chatList.scrollTop = chatList.scrollHeight;
 }
 
-// Toast notification helper
+function jsonString(obj) {
+  return JSON.stringify(obj);
+}
+
 function showToast(message) {
   const toast = document.getElementById('toastNotification');
   if (!toast) return;
