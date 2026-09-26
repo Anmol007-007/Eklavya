@@ -8,22 +8,22 @@
   --gov-green: #138808;
   --gov-green-light: #f0fdf4;
   --gov-green-border: #86efac;
-  --gov-surface-canvas: #f4f6f8;
+  --gov-surface-canvas: #eceff1;
   --gov-surface-card: #ffffff;
-  --gov-border-subtle: #d1d5db;
-  --gov-border-card: #e5e7eb;
+  --gov-border-subtle: #94a3b8;
+  --gov-border-card: #cbd5e1;
   --gov-text-primary: #111827;
-  --gov-text-secondary: #4b5563;
-  --gov-text-muted: #6b7280;
-  --radius-sharp: 3px;
+  --gov-text-secondary: #374151;
+  --gov-text-muted: #4b5563;
+  --radius-sharp: 2px;
   --radius-card: 4px;
-  --radius-button: 4px;
+  --radius-button: 3px;
   --shadow-subtle: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
   --shadow-card: 0 1px 3px 0 rgba(0, 0, 0, 0.08), 0 1px 2px -1px rgba(0, 0, 0, 0.04);
 }
 
 body {
-  font-family: 'Inter', 'Roboto', 'Noto Sans Devanagari', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
   background-color: var(--gov-surface-canvas);
   color: var(--gov-text-primary);
   margin: 0;
@@ -31,6 +31,28 @@ body {
   font-size: 14px;
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
+}
+
+input, select, textarea, button {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="number"],
+input[type="password"],
+select,
+textarea {
+  border: 1px solid #94a3b8;
+  border-radius: 3px;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: #0a3d62 !important;
+  outline: 2px solid rgba(10, 61, 98, 0.25) !important;
 }
 
 .skip-link {
@@ -99,7 +121,7 @@ body.high-contrast .text-slate-300 {
   color: #94a3b8 !important;
 }
 
-body.high-contrast .text-[#0a3d62] {
+body.high-contrast .text-\[\#0a3d62\] {
   color: #93c5fd !important;
 }
 
@@ -111,14 +133,14 @@ body.high-contrast .bg-white {
 
 body.high-contrast .bg-slate-50,
 body.high-contrast .bg-slate-100,
-body.high-contrast .bg-[#f8fafc] {
+body.high-contrast .bg-\[\#f8fafc\] {
   background-color: #1f2937 !important;
   border-color: #374151 !important;
   color: #f9fafb !important;
 }
 
 body.high-contrast .bg-emerald-50,
-body.high-contrast .bg-[#f0fdf4] {
+body.high-contrast .bg-\[\#f0fdf4\] {
   background-color: #064e3b !important;
   border-color: #059669 !important;
   color: #d1fae5 !important;
@@ -266,6 +288,23 @@ body.high-contrast footer {
 }
 
 .currency-amount {
-  font-family: 'Roboto Mono', 'Inter', monospace;
+  font-family: inherit;
   font-feature-settings: 'tnum';
+  font-variant-numeric: tabular-nums;
+}
+
+.breadcrumb-strip {
+  background-color: #e2e8f0;
+  border-bottom: 1px solid #cbd5e1;
+}
+
+body.high-contrast .breadcrumb-strip {
+  background-color: #0f172a !important;
+  border-bottom-color: #334155 !important;
+  color: #e2e8f0 !important;
+}
+
+body.high-contrast .breadcrumb-strip a,
+body.high-contrast .breadcrumb-strip span {
+  color: #e2e8f0 !important;
 }
