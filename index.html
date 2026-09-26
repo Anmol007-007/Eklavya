@@ -1,15 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="utf-8"/>
-  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
   <title>Eklavya Portal | National Unified Scholarship Portal | Government of India</title>
-  <link href="https://fonts.googleapis.com" rel="preconnect"/>
-  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+Devanagari:wght@400;600;700&family=Roboto+Mono:wght@500;700&display=swap" rel="stylesheet"/>
-  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com" rel="preconnect" />
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+Devanagari:wght@400;600;700&family=Roboto+Mono:wght@500;700&display=swap"
+    rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+    rel="stylesheet" />
   <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-  <link rel="stylesheet" href="style.css"/>
+  <link rel="stylesheet" href="style.css" />
   <script id="tailwind-config">
     tailwind.config = {
       darkMode: "class",
@@ -39,60 +43,84 @@
     }
   </script>
 </head>
+
 <body class="bg-[#f4f6f8] text-slate-900 antialiased min-h-screen flex flex-col">
   <a href="#main-content" class="skip-link">Skip to Main Content</a>
 
   <div class="bg-[#f8f9fa] border-b border-[#dee2e6] text-[#212529] text-xs py-1.5 px-4 w-full">
     <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2">
       <div class="flex items-center space-x-2 text-[11px] font-semibold">
-        <span class="inline-block w-4 h-2.5 bg-gradient-to-b from-[#ff9933] via-white to-[#138808] border border-slate-300"></span>
+        <span
+          class="inline-block w-4 h-2.5 bg-gradient-to-b from-[#ff9933] via-white to-[#138808] border border-slate-300"></span>
         <span id="lblGovStripGov">भारत सरकार | GOI</span>
         <span class="text-slate-400">|</span>
-        <span id="lblGovStripMinistry" class="text-slate-600 font-medium">Ministry of Tribal Affairs & Social Welfare</span>
+        <span id="lblGovStripMinistry" class="text-slate-600 font-medium">Ministry of Tribal Affairs & Social
+          Welfare</span>
       </div>
       <div class="flex items-center space-x-3 text-[11px]">
-        <a href="#main-content" class="hover:underline text-slate-700 font-medium hidden sm:inline">Skip to Main Content</a>
+        <a href="#main-content" class="hover:underline text-slate-700 font-medium hidden sm:inline">Skip to Main
+          Content</a>
         <span class="text-slate-300 hidden sm:inline">|</span>
-        <button onclick="alertScreenReaderInfo()" class="hover:underline text-slate-700 font-medium flex items-center gap-1" title="Screen Reader Access Policy">
+        <button onclick="alertScreenReaderInfo()"
+          class="hover:underline text-slate-700 font-medium flex items-center gap-1"
+          title="Screen Reader Access Policy">
           <span class="material-symbols-outlined text-[14px]">settings_accessibility</span>
           <span class="hidden md:inline">Screen Reader Access</span>
         </button>
         <span class="text-slate-300">|</span>
         <div class="flex items-center space-x-1" title="Adjust Text Size">
-          <button onclick="setFontSize('small')" class="px-1.5 py-0.5 border border-slate-300 rounded bg-white hover:bg-slate-100 font-bold text-[10px]" title="Small Text">A-</button>
-          <button onclick="setFontSize('normal')" class="px-1.5 py-0.5 border border-slate-300 rounded bg-white hover:bg-slate-100 font-bold text-[10px]" title="Normal Text">A</button>
-          <button onclick="setFontSize('large')" class="px-1.5 py-0.5 border border-slate-300 rounded bg-white hover:bg-slate-100 font-bold text-[10px]" title="Large Text">A+</button>
+          <button onclick="setFontSize('small')"
+            class="px-1.5 py-0.5 border border-slate-300 rounded bg-white hover:bg-slate-100 font-bold text-[10px]"
+            title="Small Text">A-</button>
+          <button onclick="setFontSize('normal')"
+            class="px-1.5 py-0.5 border border-slate-300 rounded bg-white hover:bg-slate-100 font-bold text-[10px]"
+            title="Normal Text">A</button>
+          <button onclick="setFontSize('large')"
+            class="px-1.5 py-0.5 border border-slate-300 rounded bg-white hover:bg-slate-100 font-bold text-[10px]"
+            title="Large Text">A+</button>
         </div>
         <span class="text-slate-300">|</span>
-        <button onclick="toggleHighContrast()" id="btnContrast" class="px-2 py-0.5 border border-slate-300 rounded bg-white hover:bg-slate-100 font-semibold text-[11px] flex items-center gap-1" title="Toggle High Contrast">
+        <button onclick="toggleHighContrast()" id="btnContrast"
+          class="px-2 py-0.5 border border-slate-300 rounded bg-white hover:bg-slate-100 font-semibold text-[11px] flex items-center gap-1"
+          title="Toggle High Contrast">
           <span class="material-symbols-outlined text-[13px]">contrast</span>
           <span class="hidden sm:inline">Contrast</span>
         </button>
         <span class="text-slate-300">|</span>
         <div class="relative">
-          <button id="btnLangSelect" onclick="toggleLanguageMenu(event)" class="flex items-center space-x-1 bg-white hover:bg-slate-100 px-2 py-0.5 rounded border border-slate-300 font-bold text-[11px] text-[#0a3d62]">
+          <button id="btnLangSelect" onclick="toggleLanguageMenu(event)"
+            class="flex items-center space-x-1 bg-white hover:bg-slate-100 px-2 py-0.5 rounded border border-slate-300 font-bold text-[11px] text-[#0a3d62]">
             <span class="material-symbols-outlined text-[14px]">language</span>
             <span id="currentLangLabel">हिन्दी</span>
             <span class="material-symbols-outlined text-[12px]">expand_more</span>
           </button>
-          <div id="langDropdown" class="hidden absolute right-0 mt-1 w-44 bg-white rounded shadow-lg border border-slate-300 py-1 z-50 text-slate-800 text-xs">
-            <div class="px-3 py-1 text-[10px] font-bold text-slate-400 uppercase tracking-wider border-b border-slate-100">Select Language</div>
-            <button onclick="setLanguage('en')" class="w-full text-left px-3 py-1.5 hover:bg-slate-100 flex items-center justify-between">
+          <div id="langDropdown"
+            class="hidden absolute right-0 mt-1 w-44 bg-white rounded shadow-lg border border-slate-300 py-1 z-50 text-slate-800 text-xs">
+            <div
+              class="px-3 py-1 text-[10px] font-bold text-slate-400 uppercase tracking-wider border-b border-slate-100">
+              Select Language</div>
+            <button onclick="setLanguage('en')"
+              class="w-full text-left px-3 py-1.5 hover:bg-slate-100 flex items-center justify-between">
               <span>English</span><span class="text-slate-400 text-[10px]">EN</span>
             </button>
-            <button onclick="setLanguage('hi')" class="w-full text-left px-3 py-1.5 hover:bg-slate-100 flex items-center justify-between font-semibold text-[#c2410c]">
+            <button onclick="setLanguage('hi')"
+              class="w-full text-left px-3 py-1.5 hover:bg-slate-100 flex items-center justify-between font-semibold text-[#c2410c]">
               <span>हिन्दी (Hindi)</span><span class="text-slate-400 text-[10px]">HI</span>
             </button>
-            <button onclick="setLanguage('sat')" class="w-full text-left px-3 py-1.5 hover:bg-slate-100 flex items-center justify-between">
+            <button onclick="setLanguage('sat')"
+              class="w-full text-left px-3 py-1.5 hover:bg-slate-100 flex items-center justify-between">
               <span>ᱥᱟᱱᱛᱟᱲᱤ (Santhali)</span><span class="text-slate-400 text-[10px]">SAT</span>
             </button>
-            <button onclick="setLanguage('gon')" class="w-full text-left px-3 py-1.5 hover:bg-slate-100 flex items-center justify-between">
+            <button onclick="setLanguage('gon')"
+              class="w-full text-left px-3 py-1.5 hover:bg-slate-100 flex items-center justify-between">
               <span>गोंडी (Gondi)</span><span class="text-slate-400 text-[10px]">GON</span>
             </button>
-            <button onclick="setLanguage('od')" class="w-full text-left px-3 py-1.5 hover:bg-slate-100 flex items-center justify-between">
+            <button onclick="setLanguage('od')"
+              class="w-full text-left px-3 py-1.5 hover:bg-slate-100 flex items-center justify-between">
               <span>ଓଡ଼ିଆ (Odia)</span><span class="text-slate-400 text-[10px]">OD</span>
             </button>
-            <button onclick="setLanguage('bn')" class="w-full text-left px-3 py-1.5 hover:bg-slate-100 flex items-center justify-between">
+            <button onclick="setLanguage('bn')"
+              class="w-full text-left px-3 py-1.5 hover:bg-slate-100 flex items-center justify-between">
               <span>বাংলা (Bengali)</span><span class="text-slate-400 text-[10px]">BN</span>
             </button>
           </div>
@@ -106,8 +134,10 @@
       <div class="flex items-center space-x-3.5">
         <div class="flex-shrink-0" title="State Emblem of India">
           <svg class="w-10 h-14 text-[#0a3d62] fill-current" viewBox="0 0 60 84">
-            <path d="M30 4C27 4 25 6 25 8V14H35V8C35 6 33 4 30 4ZM16 16C14 16 12 18 12 20V32C12 36 15 39 19 40V46H13V50H47V46H41V40C45 39 48 36 48 32V20C48 18 46 16 44 16H16ZM30 16C33 16 35 18 35 21V32C35 35 33 37 30 37C27 37 25 35 25 32V21C25 18 27 16 30 16ZM30 52C24 52 19 55 19 58H41C41 55 36 52 30 52ZM10 62V66H50V62H10ZM16 70C16 75 22 79 30 79C38 79 44 75 44 70H16Z"/>
-            <text x="30" y="83" font-size="5" text-anchor="middle" font-family="'Noto Sans Devanagari', sans-serif" font-weight="bold" fill="#0a3d62">सत्यमेव जयते</text>
+            <path
+              d="M30 4C27 4 25 6 25 8V14H35V8C35 6 33 4 30 4ZM16 16C14 16 12 18 12 20V32C12 36 15 39 19 40V46H13V50H47V46H41V40C45 39 48 36 48 32V20C48 18 46 16 44 16H16ZM30 16C33 16 35 18 35 21V32C35 35 33 37 30 37C27 37 25 35 25 32V21C25 18 27 16 30 16ZM30 52C24 52 19 55 19 58H41C41 55 36 52 30 52ZM10 62V66H50V62H10ZM16 70C16 75 22 79 30 79C38 79 44 75 44 70H16Z" />
+            <text x="30" y="83" font-size="5" text-anchor="middle" font-family="'Noto Sans Devanagari', sans-serif"
+              font-weight="bold" fill="#0a3d62">सत्यमेव जयते</text>
           </svg>
         </div>
         <div class="h-12 w-[1px] bg-slate-300 hidden sm:block"></div>
@@ -130,10 +160,10 @@
             <span class="text-[10px] text-slate-500 font-medium">Power To Empower</span>
           </div>
           <svg class="w-10 h-10 flex-shrink-0" viewBox="0 0 48 48" fill="none">
-            <circle cx="24" cy="24" r="22" stroke="#0a3d62" stroke-width="2"/>
-            <path d="M12 28C16 16 32 16 36 28" stroke="#ff9933" stroke-width="3" stroke-linecap="round"/>
-            <path d="M15 32C19 23 29 23 33 32" stroke="#138808" stroke-width="2.5" stroke-linecap="round"/>
-            <circle cx="24" cy="20" r="3" fill="#0a3d62"/>
+            <circle cx="24" cy="24" r="22" stroke="#0a3d62" stroke-width="2" />
+            <path d="M12 28C16 16 32 16 36 28" stroke="#ff9933" stroke-width="3" stroke-linecap="round" />
+            <path d="M15 32C19 23 29 23 33 32" stroke="#138808" stroke-width="2.5" stroke-linecap="round" />
+            <circle cx="24" cy="20" r="3" fill="#0a3d62" />
           </svg>
         </div>
       </div>
@@ -144,31 +174,39 @@
   <nav class="bg-[#0a3d62] text-white shadow-sm sticky top-0 z-40 w-full">
     <div class="max-w-7xl mx-auto px-4 flex items-center justify-between">
       <div class="flex items-center space-x-1">
-        <button onclick="toggleSideMenu()" class="p-2 rounded hover:bg-white/10 text-white lg:hidden" title="Toggle Navigation Menu">
+        <button onclick="toggleSideMenu()" class="p-2 rounded hover:bg-white/10 text-white lg:hidden"
+          title="Toggle Navigation Menu">
           <span class="material-symbols-outlined text-[22px]">menu</span>
         </button>
         <div class="hidden lg:flex items-center space-x-1">
-          <button onclick="navigateToPage('page-dashboard')" id="topNavDashboard" class="px-3.5 py-2.5 text-xs font-bold text-white bg-slate-900 border-b-2 border-[#ff9933] flex items-center gap-1.5 transition">
+          <button onclick="navigateToPage('page-dashboard')" id="topNavDashboard"
+            class="px-3.5 py-2.5 text-xs font-bold text-white bg-slate-900 border-b-2 border-[#ff9933] flex items-center gap-1.5 transition">
             <span class="material-symbols-outlined text-[16px]">dashboard</span>
             <span>Dashboard</span>
           </button>
-          <button onclick="navigateToPage('page-schemes')" id="topNavSchemes" class="px-3.5 py-2.5 text-xs font-semibold text-slate-200 hover:text-white hover:bg-white/10 flex items-center gap-1.5 transition">
+          <button onclick="navigateToPage('page-schemes')" id="topNavSchemes"
+            class="px-3.5 py-2.5 text-xs font-semibold text-slate-200 hover:text-white hover:bg-white/10 flex items-center gap-1.5 transition">
             <span class="material-symbols-outlined text-[16px]">verified</span>
             <span>Schemes & Eligibility</span>
           </button>
-          <button onclick="navigateToPage('page-apply')" id="topNavApply" class="px-3.5 py-2.5 text-xs font-semibold text-slate-200 hover:text-white hover:bg-white/10 flex items-center gap-1.5 transition">
+          <button onclick="navigateToPage('page-apply')" id="topNavApply"
+            class="px-3.5 py-2.5 text-xs font-semibold text-slate-200 hover:text-white hover:bg-white/10 flex items-center gap-1.5 transition">
             <span class="material-symbols-outlined text-[16px]">edit_document</span>
             <span>Apply Application</span>
           </button>
-          <button onclick="navigateToPage('page-digilocker')" id="topNavDocs" class="px-3.5 py-2.5 text-xs font-semibold text-slate-200 hover:text-white hover:bg-white/10 flex items-center gap-1.5 transition">
+          <button onclick="navigateToPage('page-digilocker')" id="topNavDocs"
+            class="px-3.5 py-2.5 text-xs font-semibold text-slate-200 hover:text-white hover:bg-white/10 flex items-center gap-1.5 transition">
             <span class="material-symbols-outlined text-[16px]">cloud_sync</span>
             <span>DigiLocker Services</span>
           </button>
         </div>
       </div>
       <div class="relative py-1">
-        <button id="userProfileDropdownBtn" onclick="toggleProfileDropdown(event)" class="flex items-center space-x-2.5 px-2.5 py-1.5 rounded hover:bg-white/10 transition text-left focus:outline-none" title="User Account Menu">
-          <div class="w-7 h-7 rounded-full bg-[#c2410c] text-white font-bold text-xs flex items-center justify-center border border-white/30 flex-shrink-0">
+        <button id="userProfileDropdownBtn" onclick="toggleProfileDropdown(event)"
+          class="flex items-center space-x-2.5 px-2.5 py-1.5 rounded hover:bg-white/10 transition text-left focus:outline-none"
+          title="User Account Menu">
+          <div
+            class="w-7 h-7 rounded-full bg-[#c2410c] text-white font-bold text-xs flex items-center justify-center border border-white/30 flex-shrink-0">
             AS
           </div>
           <div class="hidden sm:block leading-tight">
@@ -177,7 +215,8 @@
           </div>
           <span class="material-symbols-outlined text-[16px] text-slate-300">arrow_drop_down</span>
         </button>
-        <div id="profileDropdown" class="hidden absolute right-0 mt-1.5 w-64 bg-white rounded shadow-xl border border-slate-300 py-1.5 z-50 text-slate-800 text-xs">
+        <div id="profileDropdown"
+          class="hidden absolute right-0 mt-1.5 w-64 bg-white rounded shadow-xl border border-slate-300 py-1.5 z-50 text-slate-800 text-xs">
           <div class="px-4 py-2 border-b border-slate-100 bg-slate-50">
             <p class="font-bold text-slate-900 text-sm">Anmol Soni</p>
             <p class="text-[11px] text-slate-600 truncate">Gyan Ganga College Of Technology</p>
@@ -186,21 +225,25 @@
             </span>
           </div>
           <div class="py-1">
-            <button onclick="navigateToPage('page-profile'); toggleProfileDropdown();" class="w-full text-left px-4 py-2 hover:bg-slate-100 flex items-center space-x-2">
+            <button onclick="navigateToPage('page-profile'); toggleProfileDropdown();"
+              class="w-full text-left px-4 py-2 hover:bg-slate-100 flex items-center space-x-2">
               <span class="material-symbols-outlined text-[18px] text-slate-500">person</span>
               <span>My Profile & Documents</span>
             </button>
-            <button onclick="navigateToPage('page-dashboard'); toggleProfileDropdown();" class="w-full text-left px-4 py-2 hover:bg-slate-100 flex items-center space-x-2">
+            <button onclick="navigateToPage('page-dashboard'); toggleProfileDropdown();"
+              class="w-full text-left px-4 py-2 hover:bg-slate-100 flex items-center space-x-2">
               <span class="material-symbols-outlined text-[18px] text-slate-500">receipt_long</span>
               <span>Application History & DBT</span>
             </button>
-            <button onclick="toggleSahayakChat(); toggleProfileDropdown();" class="w-full text-left px-4 py-2 hover:bg-slate-100 flex items-center space-x-2">
+            <button onclick="toggleSahayakChat(); toggleProfileDropdown();"
+              class="w-full text-left px-4 py-2 hover:bg-slate-100 flex items-center space-x-2">
               <span class="material-symbols-outlined text-[18px] text-slate-500">help</span>
-              <span>Lodge Grievance / Helpdesk</span>
+              <span>Ask Eklavya</span>
             </button>
           </div>
           <div class="border-t border-slate-100 pt-1">
-            <button onclick="alert('Session signed out successfully.');" class="w-full text-left px-4 py-2 text-rose-700 hover:bg-rose-50 flex items-center space-x-2 font-semibold">
+            <button onclick="alert('Session signed out successfully.');"
+              class="w-full text-left px-4 py-2 text-rose-700 hover:bg-rose-50 flex items-center space-x-2 font-semibold">
               <span class="material-symbols-outlined text-[18px] text-rose-600">logout</span>
               <span>Sign Out</span>
             </button>
@@ -210,11 +253,14 @@
     </div>
   </nav>
 
-  <div id="sideNavOverlay" onclick="toggleSideMenu()" class="hidden fixed inset-0 bg-slate-950/50 backdrop-blur-xs z-50 transition-opacity"></div>
-  <aside id="sideNavDrawer" class="fixed top-0 left-0 bottom-0 w-80 max-w-[85vw] bg-white text-slate-800 shadow-2xl z-50 transform -translate-x-full transition-transform duration-300 flex flex-col">
+  <div id="sideNavOverlay" onclick="toggleSideMenu()"
+    class="hidden fixed inset-0 bg-slate-950/50 backdrop-blur-xs z-50 transition-opacity"></div>
+  <aside id="sideNavDrawer"
+    class="fixed top-0 left-0 bottom-0 w-80 max-w-[85vw] bg-white text-slate-800 shadow-2xl z-50 transform -translate-x-full transition-transform duration-300 flex flex-col">
     <div class="p-4 bg-[#0a3d62] text-white flex items-center justify-between">
       <div class="flex items-center space-x-3">
-        <div class="w-9 h-9 rounded bg-[#c2410c] text-white font-bold flex items-center justify-center text-sm shadow-sm flex-shrink-0">
+        <div
+          class="w-9 h-9 rounded bg-[#c2410c] text-white font-bold flex items-center justify-center text-sm shadow-sm flex-shrink-0">
           AS
         </div>
         <div class="overflow-hidden">
@@ -228,23 +274,28 @@
       </button>
     </div>
     <nav class="p-3 space-y-1 flex-1 overflow-y-auto text-xs font-semibold">
-      <button onclick="navigateToPage('page-dashboard'); toggleSideMenu();" class="w-full flex items-center space-x-3 px-3 py-2.5 rounded hover:bg-slate-100 text-slate-800">
+      <button onclick="navigateToPage('page-dashboard'); toggleSideMenu();"
+        class="w-full flex items-center space-x-3 px-3 py-2.5 rounded hover:bg-slate-100 text-slate-800">
         <span class="material-symbols-outlined text-[20px] text-[#0a3d62]">dashboard</span>
         <span>Scholarship Dashboard</span>
       </button>
-      <button onclick="navigateToPage('page-schemes'); toggleSideMenu();" class="w-full flex items-center space-x-3 px-3 py-2.5 rounded hover:bg-slate-100 text-slate-800">
+      <button onclick="navigateToPage('page-schemes'); toggleSideMenu();"
+        class="w-full flex items-center space-x-3 px-3 py-2.5 rounded hover:bg-slate-100 text-slate-800">
         <span class="material-symbols-outlined text-[20px] text-[#0a3d62]">verified</span>
         <span>Schemes & Eligibility Verifier</span>
       </button>
-      <button onclick="navigateToPage('page-apply'); toggleSideMenu();" class="w-full flex items-center space-x-3 px-3 py-2.5 rounded hover:bg-slate-100 text-slate-800">
+      <button onclick="navigateToPage('page-apply'); toggleSideMenu();"
+        class="w-full flex items-center space-x-3 px-3 py-2.5 rounded hover:bg-slate-100 text-slate-800">
         <span class="material-symbols-outlined text-[20px] text-[#0a3d62]">edit_document</span>
         <span>New Application Form</span>
       </button>
-      <button onclick="navigateToPage('page-digilocker'); toggleSideMenu();" class="w-full flex items-center space-x-3 px-3 py-2.5 rounded hover:bg-slate-100 text-slate-800">
+      <button onclick="navigateToPage('page-digilocker'); toggleSideMenu();"
+        class="w-full flex items-center space-x-3 px-3 py-2.5 rounded hover:bg-slate-100 text-slate-800">
         <span class="material-symbols-outlined text-[20px] text-[#0a3d62]">cloud_sync</span>
         <span>DigiLocker Document Sync</span>
       </button>
-      <button onclick="navigateToPage('page-profile'); toggleSideMenu();" class="w-full flex items-center space-x-3 px-3 py-2.5 rounded hover:bg-slate-100 text-slate-800">
+      <button onclick="navigateToPage('page-profile'); toggleSideMenu();"
+        class="w-full flex items-center space-x-3 px-3 py-2.5 rounded hover:bg-slate-100 text-slate-800">
         <span class="material-symbols-outlined text-[20px] text-[#0a3d62]">person</span>
         <span>My Profile & Academic Details</span>
       </button>
@@ -263,11 +314,13 @@
             <span class="text-xs text-slate-600 font-medium" id="lblWelcomePrefix">Welcome,</span>
             <span id="dashStudentName" class="text-base font-bold text-[#0a3d62]">Anmol Soni</span>
           </div>
-          <p id="dashCollegeName" class="text-xs text-slate-700 font-semibold mt-0.5">Gyan Ganga College Of Technology</p>
+          <p id="dashCollegeName" class="text-xs text-slate-700 font-semibold mt-0.5">Gyan Ganga College Of Technology
+          </p>
           <p id="dashRollNo" class="text-[11px] text-slate-500 font-mono mt-0.5">Roll: 0208AD231011 • Category: OBC</p>
         </div>
         <div class="flex items-center gap-2">
-          <span class="inline-flex items-center gap-1.5 bg-[#f0fdf4] text-[#138808] border border-[#86efac] px-3 py-1 rounded text-xs font-bold">
+          <span
+            class="inline-flex items-center gap-1.5 bg-[#f0fdf4] text-[#138808] border border-[#86efac] px-3 py-1 rounded text-xs font-bold">
             <span class="material-symbols-outlined text-[16px]">check_circle</span>
             <span>Aadhaar Authenticated • DBT Active</span>
           </span>
@@ -279,7 +332,8 @@
         <div class="p-4 sm:p-5">
           <div class="flex items-start justify-between mb-3">
             <div>
-              <span class="inline-block bg-[#0a3d62] text-white text-[10px] font-bold px-2 py-0.5 rounded uppercase tracking-wider">
+              <span
+                class="inline-block bg-[#0a3d62] text-white text-[10px] font-bold px-2 py-0.5 rounded uppercase tracking-wider">
                 Currently Running Scholarship
               </span>
               <h3 id="lblRunningScholarshipTitle" class="text-base sm:text-lg font-bold text-slate-900 mt-1">
@@ -299,12 +353,14 @@
               <span class="text-[11px] text-slate-500">Academic Year: 2024-2025</span>
             </div>
             <div class="sm:border-l sm:border-slate-200 sm:pl-4">
-              <span class="text-[11px] font-bold text-slate-500 uppercase tracking-wide">Direct Benefit Transfer (DBT)</span>
+              <span class="text-[11px] font-bold text-slate-500 uppercase tracking-wide">Direct Benefit Transfer
+                (DBT)</span>
               <div class="flex items-center space-x-1.5 mt-1">
                 <span class="material-symbols-outlined text-[#138808] text-[18px]">verified</span>
                 <p class="text-sm font-bold text-[#138808] currency-amount">₹ 22,500.00 Disbursed (Tranche 1)</p>
               </div>
-              <p class="text-xs text-[#c2410c] font-semibold mt-1 currency-amount">₹ 22,500.00 (Tranche 2 in Transit)</p>
+              <p class="text-xs text-[#c2410c] font-semibold mt-1 currency-amount">₹ 22,500.00 (Tranche 2 in Transit)
+              </p>
             </div>
           </div>
 
@@ -318,9 +374,11 @@
             </div>
           </div>
 
-          <div class="mt-4 bg-[#f8fafc] p-3 rounded border border-slate-200 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
+          <div
+            class="mt-4 bg-[#f8fafc] p-3 rounded border border-slate-200 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
             <div class="flex items-center space-x-3">
-              <div class="w-8 h-8 rounded bg-white flex items-center justify-center text-[#0a3d62] border border-slate-300 shadow-xs flex-shrink-0">
+              <div
+                class="w-8 h-8 rounded bg-white flex items-center justify-center text-[#0a3d62] border border-slate-300 shadow-xs flex-shrink-0">
                 <span class="material-symbols-outlined text-[18px]">account_balance</span>
               </div>
               <div>
@@ -328,7 +386,8 @@
                 <p class="text-xs text-slate-600 font-mono">Aadhaar Seeded Account (XXXX-XXXX-4109)</p>
               </div>
             </div>
-            <span class="inline-flex items-center gap-1 bg-[#f0fdf4] text-[#138808] border border-[#86efac] px-2.5 py-0.5 rounded text-[11px] font-bold self-start sm:self-center">
+            <span
+              class="inline-flex items-center gap-1 bg-[#f0fdf4] text-[#138808] border border-[#86efac] px-2.5 py-0.5 rounded text-[11px] font-bold self-start sm:self-center">
               <span class="material-symbols-outlined text-[14px]">check_circle</span>
               <span>NPCI Mapped Active</span>
             </span>
@@ -339,10 +398,12 @@
       <div class="gov-card p-4 sm:p-5">
         <div class="flex items-center justify-between pb-3 border-b border-slate-200">
           <div>
-            <span class="text-[11px] text-[#138808] font-bold uppercase tracking-wider">Disbursement Progress Tracker</span>
+            <span class="text-[11px] text-[#138808] font-bold uppercase tracking-wider">Disbursement Progress
+              Tracker</span>
             <h4 class="text-sm sm:text-base font-bold text-[#0a3d62] mt-0.5">Application Milestone Tracking</h4>
           </div>
-          <span class="text-xs font-mono bg-slate-100 px-2 py-0.5 rounded border border-slate-200 text-slate-800 font-bold">
+          <span
+            class="text-xs font-mono bg-slate-100 px-2 py-0.5 rounded border border-slate-200 text-slate-800 font-bold">
             Ref: MP-2024-OBC-0208
           </span>
         </div>
@@ -350,7 +411,8 @@
         <div class="mt-5 relative pl-8 space-y-4 text-xs">
           <div class="stepper-line"></div>
           <div class="relative">
-            <div class="absolute -left-[32px] top-0 w-6 h-6 rounded-full bg-[#138808] text-white flex items-center justify-center border-2 border-white shadow-xs">
+            <div
+              class="absolute -left-[32px] top-0 w-6 h-6 rounded-full bg-[#138808] text-white flex items-center justify-center border-2 border-white shadow-xs">
               <span class="material-symbols-outlined text-[14px] font-bold">check</span>
             </div>
             <p class="font-bold text-slate-900 text-sm">Application Submitted & Aadhaar OTP Verified</p>
@@ -358,7 +420,8 @@
           </div>
 
           <div class="relative">
-            <div class="absolute -left-[32px] top-0 w-6 h-6 rounded-full bg-[#138808] text-white flex items-center justify-center border-2 border-white shadow-xs">
+            <div
+              class="absolute -left-[32px] top-0 w-6 h-6 rounded-full bg-[#138808] text-white flex items-center justify-center border-2 border-white shadow-xs">
               <span class="material-symbols-outlined text-[14px] font-bold">check</span>
             </div>
             <p class="font-bold text-slate-900 text-sm">College Verification Completed</p>
@@ -366,7 +429,8 @@
           </div>
 
           <div class="relative">
-            <div class="absolute -left-[32px] top-0 w-6 h-6 rounded-full bg-[#138808] text-white flex items-center justify-center border-2 border-white shadow-xs">
+            <div
+              class="absolute -left-[32px] top-0 w-6 h-6 rounded-full bg-[#138808] text-white flex items-center justify-center border-2 border-white shadow-xs">
               <span class="material-symbols-outlined text-[14px] font-bold">check</span>
             </div>
             <p class="font-bold text-slate-900 text-sm">District Welfare Sanction Order Released</p>
@@ -374,17 +438,20 @@
           </div>
 
           <div class="relative">
-            <div class="absolute -left-[32px] top-0 w-6 h-6 rounded-full bg-[#c2410c] text-white flex items-center justify-center border-2 border-white shadow-xs animate-pulse">
+            <div
+              class="absolute -left-[32px] top-0 w-6 h-6 rounded-full bg-[#c2410c] text-white flex items-center justify-center border-2 border-white shadow-xs animate-pulse">
               <span class="material-symbols-outlined text-[14px]">sync</span>
             </div>
             <div class="bg-amber-50 p-3 rounded border border-amber-200">
               <p class="font-bold text-amber-950 text-sm">PFMS Batch Processing (Tranche 2)</p>
-              <p class="text-amber-900 text-xs mt-0.5">Payment file transmitted to Public Financial Management System (PFMS). Direct credit in progress.</p>
+              <p class="text-amber-900 text-xs mt-0.5">Payment file transmitted to Public Financial Management System
+                (PFMS). Direct credit in progress.</p>
             </div>
           </div>
 
           <div class="relative opacity-60">
-            <div class="absolute -left-[32px] top-0 w-6 h-6 rounded-full bg-slate-200 text-slate-600 flex items-center justify-center border-2 border-white">
+            <div
+              class="absolute -left-[32px] top-0 w-6 h-6 rounded-full bg-slate-200 text-slate-600 flex items-center justify-center border-2 border-white">
               <span class="material-symbols-outlined text-[14px]">schedule</span>
             </div>
             <p class="font-bold text-slate-700 text-sm">Direct Benefit Transfer Bank Credit</p>
@@ -394,22 +461,28 @@
       </div>
 
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-        <button onclick="navigateToPage('page-schemes')" class="gov-card p-4 hover:border-[#0a3d62] text-left transition flex items-start space-x-3">
-          <div class="w-9 h-9 rounded bg-blue-50 text-[#0a3d62] flex items-center justify-center flex-shrink-0 border border-blue-200">
+        <button onclick="navigateToPage('page-schemes')"
+          class="gov-card p-4 hover:border-[#0a3d62] text-left transition flex items-start space-x-3">
+          <div
+            class="w-9 h-9 rounded bg-blue-50 text-[#0a3d62] flex items-center justify-center flex-shrink-0 border border-blue-200">
             <span class="material-symbols-outlined text-[20px]">search_check</span>
           </div>
           <div>
             <p class="font-bold text-xs text-[#0a3d62]">Check Scholarship Eligibility</p>
-            <p class="text-[11px] text-slate-500 mt-0.5">Verify active Central & State schemes for your verified credentials</p>
+            <p class="text-[11px] text-slate-500 mt-0.5">Verify active Central & State schemes for your verified
+              credentials</p>
           </div>
         </button>
-        <button onclick="navigateToPage('page-digilocker')" class="gov-card p-4 hover:border-[#0a3d62] text-left transition flex items-start space-x-3">
-          <div class="w-9 h-9 rounded bg-indigo-50 text-indigo-700 flex items-center justify-center flex-shrink-0 border border-indigo-200">
+        <button onclick="navigateToPage('page-digilocker')"
+          class="gov-card p-4 hover:border-[#0a3d62] text-left transition flex items-start space-x-3">
+          <div
+            class="w-9 h-9 rounded bg-indigo-50 text-indigo-700 flex items-center justify-center flex-shrink-0 border border-indigo-200">
             <span class="material-symbols-outlined text-[20px]">cloud_sync</span>
           </div>
           <div>
             <p class="font-bold text-xs text-indigo-900">DigiLocker Document Sync</p>
-            <p class="text-[11px] text-slate-500 mt-0.5">Fetch and link digital certificates directly from Govt e-District vaults</p>
+            <p class="text-[11px] text-slate-500 mt-0.5">Fetch and link digital certificates directly from Govt
+              e-District vaults</p>
           </div>
         </button>
       </div>
@@ -421,10 +494,12 @@
           <span class="material-symbols-outlined text-[#0a3d62] text-[24px]">verified</span>
           <div>
             <h3 class="text-sm sm:text-base font-bold text-[#0a3d62]">Scholarship Eligibility Engine</h3>
-            <p class="text-xs text-slate-500">Checking current schemes against candidate academic & demographic records</p>
+            <p class="text-xs text-slate-500">Checking current schemes against candidate academic & demographic records
+            </p>
           </div>
         </div>
-        <div class="mt-3 p-3 bg-[#f8fafc] rounded border border-slate-200 text-xs grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2.5">
+        <div
+          class="mt-3 p-3 bg-[#f8fafc] rounded border border-slate-200 text-xs grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2.5">
           <div>
             <span class="text-slate-500 text-[10px] uppercase font-bold">Candidate:</span>
             <p class="font-bold text-slate-900" id="eligStudentName">Anmol Soni</p>
@@ -448,13 +523,15 @@
         <div class="gov-card border-l-4 border-l-[#138808] p-4 flex flex-col justify-between">
           <div>
             <div class="flex items-center justify-between mb-1.5">
-              <span class="bg-[#f0fdf4] text-[#138808] border border-[#86efac] text-[11px] font-bold px-2 py-0.5 rounded">
+              <span
+                class="bg-[#f0fdf4] text-[#138808] border border-[#86efac] text-[11px] font-bold px-2 py-0.5 rounded">
                 ✓ Eligible for Scheme
               </span>
               <span class="text-[10px] font-bold text-slate-500 uppercase">State & Central Assistance</span>
             </div>
             <h4 class="text-sm font-bold text-[#0a3d62]">Post-Matric Scholarship for OBC Students</h4>
-            <p class="text-xs text-slate-600 mt-1 leading-relaxed">Full tuition assistance + maintenance allowance for recognized undergraduate engineering courses (B.Tech).</p>
+            <p class="text-xs text-slate-600 mt-1 leading-relaxed">Full tuition assistance + maintenance allowance for
+              recognized undergraduate engineering courses (B.Tech).</p>
             <div class="mt-3 p-2.5 bg-[#f8fafc] rounded border border-slate-200 text-xs text-slate-800 space-y-1">
               <div class="flex items-center justify-between">
                 <span>✓ Category Rule: OBC (Passed)</span>
@@ -467,10 +544,12 @@
             </div>
           </div>
           <div class="mt-4 flex items-center space-x-2">
-            <button onclick="navigateToPage('page-apply')" class="flex-1 bg-[#c2410c] hover:bg-[#9a3412] text-white py-2 px-3 rounded text-xs font-bold transition">
+            <button onclick="navigateToPage('page-apply')"
+              class="flex-1 bg-[#c2410c] hover:bg-[#9a3412] text-white py-2 px-3 rounded text-xs font-bold transition">
               Apply Fresh / Renewal
             </button>
-            <button onclick="showEligibilityDetails('Post-Matric OBC')" class="bg-slate-100 hover:bg-slate-200 text-slate-700 py-2 px-3 rounded text-xs font-semibold border border-slate-300">
+            <button onclick="showEligibilityDetails('Post-Matric OBC')"
+              class="bg-slate-100 hover:bg-slate-200 text-slate-700 py-2 px-3 rounded text-xs font-semibold border border-slate-300">
               Criteria Rules
             </button>
           </div>
@@ -479,13 +558,15 @@
         <div class="gov-card border-l-4 border-l-[#138808] p-4 flex flex-col justify-between">
           <div>
             <div class="flex items-center justify-between mb-1.5">
-              <span class="bg-[#f0fdf4] text-[#138808] border border-[#86efac] text-[11px] font-bold px-2 py-0.5 rounded">
+              <span
+                class="bg-[#f0fdf4] text-[#138808] border border-[#86efac] text-[11px] font-bold px-2 py-0.5 rounded">
                 ✓ Eligible for Scheme
               </span>
               <span class="text-[10px] font-bold text-slate-500 uppercase">Ministry of Education</span>
             </div>
             <h4 class="text-sm font-bold text-[#0a3d62]">Central Sector Scheme of Scholarship (CSSS)</h4>
-            <p class="text-xs text-slate-600 mt-1 leading-relaxed">Financial support for college students scoring above the 80th percentile in qualifying higher secondary examinations.</p>
+            <p class="text-xs text-slate-600 mt-1 leading-relaxed">Financial support for college students scoring above
+              the 80th percentile in qualifying higher secondary examinations.</p>
             <div class="mt-3 p-2.5 bg-[#f8fafc] rounded border border-slate-200 text-xs text-slate-800 space-y-1">
               <div class="flex items-center justify-between">
                 <span>✓ Merit Requirement: Passed (&gt;80%)</span>
@@ -498,7 +579,8 @@
             </div>
           </div>
           <div class="mt-4 flex items-center space-x-2">
-            <button onclick="navigateToPage('page-apply')" class="flex-1 bg-[#0a3d62] hover:bg-[#072a44] text-white py-2 px-3 rounded text-xs font-bold transition">
+            <button onclick="navigateToPage('page-apply')"
+              class="flex-1 bg-[#0a3d62] hover:bg-[#072a44] text-white py-2 px-3 rounded text-xs font-bold transition">
               Apply Fresh Application
             </button>
           </div>
@@ -512,9 +594,11 @@
             <span class="text-[10px] font-bold text-slate-400 uppercase">Ministry of Tribal Affairs</span>
           </div>
           <h4 class="text-sm font-bold text-slate-800">National Overseas Scholarship for ST Students</h4>
-          <p class="text-xs text-slate-500 mt-0.5">Exclusive financial assistance for Scheduled Tribe scholars pursuing masters or doctoral studies in foreign universities.</p>
+          <p class="text-xs text-slate-500 mt-0.5">Exclusive financial assistance for Scheduled Tribe scholars pursuing
+            masters or doctoral studies in foreign universities.</p>
           <div class="mt-2.5 p-2 bg-rose-50 rounded border border-rose-200 text-xs text-rose-900">
-            <span>✕ Restriction: Solely applicable to Scheduled Tribe (ST) candidates. Candidate verified category is <strong>OBC</strong>.</span>
+            <span>✕ Restriction: Solely applicable to Scheduled Tribe (ST) candidates. Candidate verified category is
+              <strong>OBC</strong>.</span>
           </div>
         </div>
       </div>
@@ -534,30 +618,42 @@
         <div class="mt-4 space-y-3.5 text-xs">
           <div>
             <label class="block text-slate-700 font-semibold mb-1">Full Candidate Name (as in Aadhaar)</label>
-            <input id="formInputName" type="text" class="w-full text-xs rounded border border-slate-300 p-2 text-slate-900 font-medium bg-slate-50" readonly value="Anmol Soni"/>
+            <input id="formInputName" type="text"
+              class="w-full text-xs rounded border border-slate-300 p-2 text-slate-900 font-medium bg-slate-50" readonly
+              value="Anmol Soni" />
           </div>
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
             <div>
               <label class="block text-slate-700 font-semibold mb-1">Date of Birth (DOB)</label>
-              <input id="formInputDob" type="text" class="w-full text-xs rounded border border-slate-300 p-2 text-slate-900 font-medium bg-slate-50" readonly value="03/03/2005"/>
+              <input id="formInputDob" type="text"
+                class="w-full text-xs rounded border border-slate-300 p-2 text-slate-900 font-medium bg-slate-50"
+                readonly value="03/03/2005" />
             </div>
             <div>
               <label class="block text-slate-700 font-semibold mb-1">Caste / Category</label>
-              <input id="formInputCaste" type="text" class="w-full text-xs rounded border border-slate-300 p-2 text-slate-900 font-medium bg-slate-50" readonly value="OBC"/>
+              <input id="formInputCaste" type="text"
+                class="w-full text-xs rounded border border-slate-300 p-2 text-slate-900 font-medium bg-slate-50"
+                readonly value="OBC" />
             </div>
           </div>
           <div>
             <label class="block text-slate-700 font-semibold mb-1">College / Institution Name</label>
-            <input id="formInputCollege" type="text" class="w-full text-xs rounded border border-slate-300 p-2 text-slate-900 font-medium bg-slate-50" readonly value="Gyan Ganga College Of Technology"/>
+            <input id="formInputCollege" type="text"
+              class="w-full text-xs rounded border border-slate-300 p-2 text-slate-900 font-medium bg-slate-50" readonly
+              value="Gyan Ganga College Of Technology" />
           </div>
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
             <div>
               <label class="block text-slate-700 font-semibold mb-1">University Roll Number</label>
-              <input id="formInputRoll" type="text" class="w-full text-xs rounded border border-slate-300 p-2 text-slate-900 font-mono font-bold bg-slate-50" readonly value="0208AD231011"/>
+              <input id="formInputRoll" type="text"
+                class="w-full text-xs rounded border border-slate-300 p-2 text-slate-900 font-mono font-bold bg-slate-50"
+                readonly value="0208AD231011" />
             </div>
             <div>
               <label class="block text-slate-700 font-semibold mb-1">Annual Family Income</label>
-              <input id="formInputIncome" type="text" class="w-full text-xs rounded border border-slate-300 p-2 text-slate-900 font-medium bg-slate-50 currency-amount" readonly value="₹ 1,80,000.00"/>
+              <input id="formInputIncome" type="text"
+                class="w-full text-xs rounded border border-slate-300 p-2 text-slate-900 font-medium bg-slate-50 currency-amount"
+                readonly value="₹ 1,80,000.00" />
             </div>
           </div>
           <div>
@@ -568,7 +664,8 @@
             </select>
           </div>
           <div class="pt-2">
-            <button onclick="submitApplicationForm()" class="w-full bg-[#c2410c] hover:bg-[#9a3412] text-white py-2.5 rounded font-bold text-xs transition flex items-center justify-center space-x-1.5 shadow-xs">
+            <button onclick="submitApplicationForm()"
+              class="w-full bg-[#c2410c] hover:bg-[#9a3412] text-white py-2.5 rounded font-bold text-xs transition flex items-center justify-center space-x-1.5 shadow-xs">
               <span>Save & Submit Application to Institute</span>
               <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
             </button>
@@ -578,7 +675,8 @@
     </div>
 
     <div id="page-digilocker" class="page-view space-y-4">
-      <div class="bg-[#0a3d62] text-white rounded p-4 shadow-sm flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+      <div
+        class="bg-[#0a3d62] text-white rounded p-4 shadow-sm flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
         <div class="flex items-center space-x-3">
           <div class="w-10 h-10 rounded bg-white text-[#0a3d62] flex items-center justify-center font-bold text-sm">
             <span class="material-symbols-outlined text-[24px]">cloud_sync</span>
@@ -588,7 +686,8 @@
             <p class="text-xs text-slate-200 mt-0.5">Direct API linkage with State e-District & CBSE repositories</p>
           </div>
         </div>
-        <button id="btnSyncDigilocker" onclick="syncDigiLocker()" class="bg-[#ff9933] hover:bg-orange-500 text-slate-950 font-bold px-3.5 py-2 rounded text-xs flex items-center justify-center space-x-1.5 transition self-start sm:self-center shadow-xs">
+        <button id="btnSyncDigilocker" onclick="syncDigiLocker()"
+          class="bg-[#ff9933] hover:bg-orange-500 text-slate-950 font-bold px-3.5 py-2 rounded text-xs flex items-center justify-center space-x-1.5 transition self-start sm:self-center shadow-xs">
           <span class="material-symbols-outlined text-[16px]">sync</span>
           <span>Fetch All Verified Certificates</span>
         </button>
@@ -646,44 +745,61 @@
         <form onsubmit="saveProfile(event)" class="mt-4 space-y-3.5 text-xs">
           <div>
             <label class="block text-slate-700 font-semibold mb-1">Student Full Name</label>
-            <input id="editName" type="text" class="w-full text-xs rounded border border-slate-300 p-2 text-slate-900 font-medium" value="Anmol Soni"/>
+            <input id="editName" type="text"
+              class="w-full text-xs rounded border border-slate-300 p-2 text-slate-900 font-medium"
+              value="Anmol Soni" />
           </div>
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
             <div>
               <label class="block text-slate-700 font-semibold mb-1">Date of Birth</label>
-              <input id="editDob" type="text" class="w-full text-xs rounded border border-slate-300 p-2 text-slate-900 font-medium" value="03/03/2005"/>
+              <input id="editDob" type="text"
+                class="w-full text-xs rounded border border-slate-300 p-2 text-slate-900 font-medium"
+                value="03/03/2005" />
             </div>
             <div>
               <label class="block text-slate-700 font-semibold mb-1">Caste Category</label>
-              <input id="editCaste" type="text" class="w-full text-xs rounded border border-slate-300 p-2 text-slate-900 font-medium bg-slate-50" readonly value="OBC"/>
+              <input id="editCaste" type="text"
+                class="w-full text-xs rounded border border-slate-300 p-2 text-slate-900 font-medium bg-slate-50"
+                readonly value="OBC" />
             </div>
           </div>
           <div>
             <label class="block text-slate-700 font-semibold mb-1">Institution</label>
-            <input id="editCollege" type="text" class="w-full text-xs rounded border border-slate-300 p-2 text-slate-900 font-medium" value="Gyan Ganga College Of Technology"/>
+            <input id="editCollege" type="text"
+              class="w-full text-xs rounded border border-slate-300 p-2 text-slate-900 font-medium"
+              value="Gyan Ganga College Of Technology" />
           </div>
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
             <div>
               <label class="block text-slate-700 font-semibold mb-1">Roll Number</label>
-              <input id="editRoll" type="text" class="w-full text-xs rounded border border-slate-300 p-2 text-slate-900 font-mono font-bold" value="0208AD231011"/>
+              <input id="editRoll" type="text"
+                class="w-full text-xs rounded border border-slate-300 p-2 text-slate-900 font-mono font-bold"
+                value="0208AD231011" />
             </div>
             <div>
               <label class="block text-slate-700 font-semibold mb-1">Annual Family Income</label>
-              <input id="editIncome" type="text" class="w-full text-xs rounded border border-slate-300 p-2 text-slate-900 font-medium currency-amount" value="₹ 1,80,000.00"/>
+              <input id="editIncome" type="text"
+                class="w-full text-xs rounded border border-slate-300 p-2 text-slate-900 font-medium currency-amount"
+                value="₹ 1,80,000.00" />
             </div>
           </div>
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
             <div>
               <label class="block text-slate-700 font-semibold mb-1">Mobile Contact Number</label>
-              <input id="editPhone" type="text" class="w-full text-xs rounded border border-slate-300 p-2 text-slate-900 font-medium" value="+91 98260 12345"/>
+              <input id="editPhone" type="text"
+                class="w-full text-xs rounded border border-slate-300 p-2 text-slate-900 font-medium"
+                value="+91 98260 12345" />
             </div>
             <div>
               <label class="block text-slate-700 font-semibold mb-1">Email Address</label>
-              <input id="editEmail" type="email" class="w-full text-xs rounded border border-slate-300 p-2 text-slate-900 font-medium" value="anmol.soni@ggct.ac.in"/>
+              <input id="editEmail" type="email"
+                class="w-full text-xs rounded border border-slate-300 p-2 text-slate-900 font-medium"
+                value="anmol.soni@ggct.ac.in" />
             </div>
           </div>
           <div class="pt-2">
-            <button type="submit" class="w-full bg-[#0a3d62] hover:bg-[#072a44] text-white py-2.5 rounded font-bold text-xs transition flex items-center justify-center space-x-1.5 shadow-xs">
+            <button type="submit"
+              class="w-full bg-[#0a3d62] hover:bg-[#072a44] text-white py-2.5 rounded font-bold text-xs transition flex items-center justify-center space-x-1.5 shadow-xs">
               <span class="material-symbols-outlined text-[16px]">save</span>
               <span>Update Profile Credentials</span>
             </button>
@@ -694,39 +810,47 @@
   </main>
 
   <aside class="fixed bottom-16 md:bottom-6 right-4 z-40">
-    <button onclick="toggleSahayakChat()" class="bg-[#0a3d62] hover:bg-[#072a44] text-white rounded pl-3 pr-4 py-2.5 shadow-lg border border-[#ff9933] flex items-center space-x-2 active:scale-95 transition-transform" title="Contact Eklavya Helpdesk">
+    <button onclick="toggleSahayakChat()"
+      class="bg-[#0a3d62] hover:bg-[#072a44] text-white rounded pl-3 pr-4 py-2.5 shadow-lg border border-[#ff9933] flex items-center space-x-2 active:scale-95 transition-transform"
+      title="Ask Eklavya">
       <div class="w-6 h-6 rounded bg-[#c2410c] text-white flex items-center justify-center text-xs">
         <span class="material-symbols-outlined text-[16px]">support_agent</span>
       </div>
       <div class="text-left">
-        <p id="helpdeskBtnText" class="text-xs font-bold text-white leading-tight">Ask Eklavya (Helpdesk)</p>
+        <p id="helpdeskBtnText" class="text-xs font-bold text-white leading-tight">Ask Eklavya</p>
       </div>
     </button>
   </aside>
 
-  <div id="sahayakChatModal" class="hidden fixed bottom-28 md:bottom-20 right-4 w-84 max-w-[calc(100vw-32px)] h-96 bg-white rounded shadow-2xl border border-slate-300 flex flex-col z-50 overflow-hidden">
+  <div id="sahayakChatModal"
+    class="hidden fixed bottom-28 md:bottom-20 right-4 w-84 max-w-[calc(100vw-32px)] h-96 bg-white rounded shadow-2xl border border-slate-300 flex flex-col z-50 overflow-hidden">
     <div class="p-3 bg-[#0a3d62] text-white flex items-center justify-between text-xs">
       <div class="flex items-center space-x-2">
         <div class="w-6 h-6 rounded bg-[#c2410c] flex items-center justify-center text-white">
           <span class="material-symbols-outlined text-[14px]">support_agent</span>
         </div>
-        <span id="helpdeskModalTitle" class="font-bold text-xs">Eklavya Citizen Helpdesk</span>
+        <span id="helpdeskModalTitle" class="font-bold text-xs">Ask Eklavya</span>
       </div>
-      <button onclick="toggleSahayakChat()" class="text-slate-300 hover:text-white" title="Close Helpdesk"><span class="material-symbols-outlined text-[18px]">close</span></button>
+      <button onclick="toggleSahayakChat()" class="text-slate-300 hover:text-white" title="Close"><span
+          class="material-symbols-outlined text-[18px]">close</span></button>
     </div>
     <div id="chatMessageList" class="flex-1 p-3 overflow-y-auto space-y-2 bg-[#f8fafc] text-xs">
       <div class="flex items-start space-x-2">
-        <div class="w-6 h-6 rounded bg-[#0a3d62] text-white flex items-center justify-center text-[10px] font-bold flex-shrink-0">
+        <div
+          class="w-6 h-6 rounded bg-[#0a3d62] text-white flex items-center justify-center text-[10px] font-bold flex-shrink-0">
           <span class="material-symbols-outlined text-[13px]">support_agent</span>
         </div>
         <div class="bg-white p-2.5 rounded border border-slate-200 text-slate-800 text-xs leading-relaxed shadow-xs">
-          Namaste <strong>Anmol Soni</strong>. Welcome to the Ministry of Tribal Affairs Student Helpdesk. How can we assist you with your Post-Matric OBC Scholarship verification or DBT tracking today?
+          Namaste <strong>Anmol Soni</strong>. I am <strong>Eklavya</strong>, your AI Scholarship Assistant. How can I assist you with your Post-Matric OBC Scholarship verification, DBT payments, or DigiLocker documents today?
         </div>
       </div>
     </div>
     <div class="p-2 bg-white border-t border-slate-200 flex items-center space-x-1.5">
-      <input id="chatInputText" type="text" placeholder="Type your query or grievance here..." class="flex-1 text-xs border border-slate-300 rounded px-2.5 py-1.5 outline-none focus:border-[#0a3d62]" onkeydown="if(event.key==='Enter') sendUserChat()"/>
-      <button onclick="sendUserChat()" class="p-1.5 bg-[#0a3d62] text-white rounded hover:bg-[#072a44] transition" title="Send Query">
+      <input id="chatInputText" type="text" placeholder="Type here..."
+        class="flex-1 text-xs border border-slate-300 rounded px-2.5 py-1.5 outline-none focus:border-[#0a3d62]"
+        onkeydown="if(event.key==='Enter') sendUserChat()" />
+      <button onclick="sendUserChat()" class="p-1.5 bg-[#0a3d62] text-white rounded hover:bg-[#072a44] transition"
+        title="Send Query">
         <span class="material-symbols-outlined text-[16px]">send</span>
       </button>
     </div>
@@ -738,28 +862,43 @@
         <div>
           <h5 class="font-bold text-white uppercase tracking-wider mb-2">Government Links</h5>
           <ul class="space-y-1 text-slate-300">
-            <li><a href="https://tribal.nic.in" target="_blank" class="hover:underline">Ministry of Tribal Affairs</a></li>
-            <li><a href="https://scholarships.gov.in" target="_blank" class="hover:underline">National Scholarship Portal</a></li>
+            <li><a href="https://tribal.nic.in" target="_blank" class="hover:underline">Ministry of Tribal Affairs</a>
+            </li>
+            <li><a href="https://scholarships.gov.in" target="_blank" class="hover:underline">National Scholarship
+                Portal</a></li>
             <li><a href="https://pfms.nic.in" target="_blank" class="hover:underline">PFMS Payment Gateway</a></li>
-            <li><a href="https://www.india.gov.in" target="_blank" class="hover:underline">National Portal of India</a></li>
+            <li><a href="https://www.india.gov.in" target="_blank" class="hover:underline">National Portal of India</a>
+            </li>
           </ul>
         </div>
         <div>
           <h5 class="font-bold text-white uppercase tracking-wider mb-2">Policies & Acts</h5>
           <ul class="space-y-1 text-slate-300">
-            <li><a href="#" onclick="alert('Privacy Policy: All student data is stored under national encryption standards.'); return false;" class="hover:underline">Privacy Policy</a></li>
-            <li><a href="#" onclick="alert('Terms & Conditions: Official guidelines for scholarship disbursement.'); return false;" class="hover:underline">Terms & Conditions</a></li>
-            <li><a href="#" onclick="alert('Copyright Policy: Content published by Government of India.'); return false;" class="hover:underline">Copyright Policy</a></li>
-            <li><a href="#" onclick="alert('Disclaimer: Information is verified via State e-District repositories.'); return false;" class="hover:underline">Disclaimer</a></li>
+            <li><a href="#"
+                onclick="alert('Privacy Policy: All student data is stored under national encryption standards.'); return false;"
+                class="hover:underline">Privacy Policy</a></li>
+            <li><a href="#"
+                onclick="alert('Terms & Conditions: Official guidelines for scholarship disbursement.'); return false;"
+                class="hover:underline">Terms & Conditions</a></li>
+            <li><a href="#"
+                onclick="alert('Copyright Policy: Content published by Government of India.'); return false;"
+                class="hover:underline">Copyright Policy</a></li>
+            <li><a href="#"
+                onclick="alert('Disclaimer: Information is verified via State e-District repositories.'); return false;"
+                class="hover:underline">Disclaimer</a></li>
           </ul>
         </div>
         <div>
           <h5 class="font-bold text-white uppercase tracking-wider mb-2">Support & Grievance</h5>
           <ul class="space-y-1 text-slate-300">
             <li><a href="#" onclick="toggleSahayakChat(); return false;" class="hover:underline">Help & FAQ</a></li>
-            <li><a href="#" onclick="alertScreenReaderInfo(); return false;" class="hover:underline">Accessibility Statement</a></li>
-            <li><a href="#" onclick="alert('Contact Toll-Free: 1800-11-2026 (Mon-Sat, 9 AM - 6 PM)'); return false;" class="hover:underline">Toll-Free Helpline</a></li>
-            <li><a href="#" onclick="alert('Web Information Manager: Director (Scholarships), Ministry of Tribal Affairs'); return false;" class="hover:underline">Web Information Manager</a></li>
+            <li><a href="#" onclick="alertScreenReaderInfo(); return false;" class="hover:underline">Accessibility
+                Statement</a></li>
+            <li><a href="#" onclick="alert('Contact Toll-Free: 1800-11-2026 (Mon-Sat, 9 AM - 6 PM)'); return false;"
+                class="hover:underline">Toll-Free Helpline</a></li>
+            <li><a href="#"
+                onclick="alert('Web Information Manager: Director (Scholarships), Ministry of Tribal Affairs'); return false;"
+                class="hover:underline">Web Information Manager</a></li>
           </ul>
         </div>
         <div>
@@ -776,7 +915,8 @@
         <div class="flex items-center space-x-2 text-center md:text-left">
           <span class="px-1.5 py-0.5 bg-white/10 rounded font-bold text-white text-[10px]">NIC</span>
           <p>
-            Designed, Developed and Hosted by <strong>National Informatics Centre (NIC)</strong>, Ministry of Electronics & Information Technology, Government of India.
+            Designed, Developed and Hosted by <strong>National Informatics Centre (NIC)</strong>, Ministry of
+            Electronics & Information Technology, Government of India.
           </p>
         </div>
         <p class="text-slate-400 text-[10px] flex-shrink-0">
@@ -786,29 +926,36 @@
     </div>
   </footer>
 
-  <nav class="lg:hidden sticky bottom-0 left-0 w-full z-30 flex justify-around items-center px-2 py-1.5 bg-white border-t border-slate-300 shadow-md">
-    <button onclick="navigateToPage('page-dashboard')" id="navBtnDashboard" class="flex flex-col items-center justify-center text-[#c2410c] px-3 py-1 font-bold text-xs">
+  <nav
+    class="lg:hidden sticky bottom-0 left-0 w-full z-30 flex justify-around items-center px-2 py-1.5 bg-white border-t border-slate-300 shadow-md">
+    <button onclick="navigateToPage('page-dashboard')" id="navBtnDashboard"
+      class="flex flex-col items-center justify-center text-[#c2410c] px-3 py-1 font-bold text-xs">
       <span class="material-symbols-outlined text-[18px]">dashboard</span>
       <span>Dashboard</span>
     </button>
-    <button onclick="navigateToPage('page-schemes')" id="navBtnSchemes" class="flex flex-col items-center justify-center text-slate-500 hover:text-slate-800 px-3 py-1 text-xs font-medium">
+    <button onclick="navigateToPage('page-schemes')" id="navBtnSchemes"
+      class="flex flex-col items-center justify-center text-slate-500 hover:text-slate-800 px-3 py-1 text-xs font-medium">
       <span class="material-symbols-outlined text-[18px]">verified</span>
       <span>Schemes</span>
     </button>
-    <button onclick="navigateToPage('page-digilocker')" id="navBtnDocs" class="flex flex-col items-center justify-center text-slate-500 hover:text-slate-800 px-3 py-1 text-xs font-medium">
+    <button onclick="navigateToPage('page-digilocker')" id="navBtnDocs"
+      class="flex flex-col items-center justify-center text-slate-500 hover:text-slate-800 px-3 py-1 text-xs font-medium">
       <span class="material-symbols-outlined text-[18px]">cloud_sync</span>
       <span>DigiLocker</span>
     </button>
-    <button onclick="navigateToPage('page-profile')" id="navBtnProfile" class="flex flex-col items-center justify-center text-slate-500 hover:text-slate-800 px-3 py-1 text-xs font-medium">
+    <button onclick="navigateToPage('page-profile')" id="navBtnProfile"
+      class="flex flex-col items-center justify-center text-slate-500 hover:text-slate-800 px-3 py-1 text-xs font-medium">
       <span class="material-symbols-outlined text-[18px]">person</span>
       <span>Profile</span>
     </button>
   </nav>
 
-  <div id="toastNotification" class="fixed top-6 left-1/2 -translate-x-1/2 bg-[#072a44] text-white px-4 py-2 rounded text-xs font-semibold shadow-xl border border-white/20 z-50 transition-opacity duration-300 opacity-0 pointer-events-none">
+  <div id="toastNotification"
+    class="fixed top-6 left-1/2 -translate-x-1/2 bg-[#072a44] text-white px-4 py-2 rounded text-xs font-semibold shadow-xl border border-white/20 z-50 transition-opacity duration-300 opacity-0 pointer-events-none">
     Notification
   </div>
 
   <script src="app.js"></script>
 </body>
+
 </html>

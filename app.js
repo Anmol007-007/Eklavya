@@ -37,8 +37,8 @@ const i18n = {
     navApply: "Apply Application",
     navDocs: "DigiLocker Services",
     navProfile: "My Profile",
-    helpdeskBtn: "Ask Eklavya (Helpdesk)",
-    helpdeskHeader: "Eklavya Citizen Helpdesk"
+    helpdeskBtn: "Ask Eklavya",
+    helpdeskHeader: "Ask Eklavya"
   },
   hi: {
     langName: "हिन्दी",
@@ -54,8 +54,8 @@ const i18n = {
     navApply: "आवेदन पत्र",
     navDocs: "डिजिलॉकर सेवाएं",
     navProfile: "मेरी प्रोफाइल",
-    helpdeskBtn: "एकलव्य सहायता केंद्र (Helpdesk)",
-    helpdeskHeader: "एकलव्य नागरिक सहायता केंद्र"
+    helpdeskBtn: "एकलव्य से पूछें",
+    helpdeskHeader: "एकलव्य से पूछें"
   },
   sat: {
     langName: "ᱥᱟᱱᱛᱟᱲᱤ",
@@ -71,8 +71,8 @@ const i18n = {
     navApply: "ᱫᱚᱨᱠᱷᱟᱥᱛ",
     navDocs: "ᱰᱤᱡᱤᱞᱚᱠᱟᱨ",
     navProfile: "ᱯᱨᱳᱯᱷᱟᱭᱤᱞ",
-    helpdeskBtn: "ᱜᱚᱲᱚ ᱛᱟᱞᱢᱟ (Helpdesk)",
-    helpdeskHeader: "ᱮᱠᱞᱟᱵᱽᱭᱚ ᱜᱚᱲᱚ ᱛᱟᱞᱢᱟ"
+    helpdeskBtn: "ᱮᱠᱞᱟᱵᱽᱭᱚ ᱠᱩᱞᱤᱭᱮᱢ",
+    helpdeskHeader: "ᱮᱠᱞᱟᱵᱽᱭᱚ ᱠᱩᱞᱤᱭᱮᱢ"
   },
   gon: {
     langName: "गोंडी",
@@ -88,8 +88,8 @@ const i18n = {
     navApply: "आवेदन",
     navDocs: "डिजिलॉकर",
     navProfile: "प्रोफाइल",
-    helpdeskBtn: "मदद केंद्र (Helpdesk)",
-    helpdeskHeader: "एकलव्य सहायता केंद्र"
+    helpdeskBtn: "एकलव्य से पूछें",
+    helpdeskHeader: "एकलव्य से पूछें"
   },
   od: {
     langName: "ଓଡ଼ିଆ",
@@ -105,8 +105,8 @@ const i18n = {
     navApply: "ଆବେଦନ",
     navDocs: "ଡିଜିଲକର",
     navProfile: "ପ୍ରୋଫାଇଲ",
-    helpdeskBtn: "ସହାୟତା କେନ୍ଦ୍ର (Helpdesk)",
-    helpdeskHeader: "ଏକଲବ୍ୟ ସହାୟତା କେନ୍ଦ୍ର"
+    helpdeskBtn: "ଏକଲବ୍ୟଙ୍କୁ ପଚାରନ୍ତୁ",
+    helpdeskHeader: "ଏକଲବ୍ୟଙ୍କୁ ପଚାରନ୍ତୁ"
   },
   bn: {
     langName: "বাংলা",
@@ -122,8 +122,8 @@ const i18n = {
     navApply: "আবেদন",
     navDocs: "ডিজিলকার",
     navProfile: "প্রোফাইল",
-    helpdeskBtn: "হেল্পডেস্ক (Helpdesk)",
-    helpdeskHeader: "একক্লব্য নাগরিক হেল্পডেস্ক"
+    helpdeskBtn: "একক্লব্যকে জিজ্ঞাসা করুন",
+    helpdeskHeader: "একক্লব্যকে জিজ্ঞাসা করুন"
   }
 };
 
@@ -391,33 +391,126 @@ function toggleSahayakChat() {
   }
 }
 
+function formatBotResponse(text) {
+  if (!text) return "";
+  let clean = text
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;");
+
+  clean = clean.replace(/\*\*(.*?)\*\*/g, '<strong class="font-bold text-slate-900">$1</strong>');
+  
+  const lines = clean.split('\n');
+  const formattedLines = lines.map(line => {
+    const trimmed = line.trim();
+    if (trimmed.startsWith('•') || trimmed.startsWith('-') || trimmed.startsWith('*')) {
+      const content = trimmed.substring(1).trim();
+      return `<div class="flex items-start space-x-1.5 my-1 ml-1"><span class="text-[#c2410c] font-bold select-none">•</span><span>${content}</span></div>`;
+    }
+    if (trimmed === '') {
+      return '<div class="h-1.5"></div>';
+    }
+    return `<div>${trimmed}</div>`;
+  });
+
+  return formattedLines.join('');
+}
+
 function generateLocalChatAnswer(query) {
   const q = query.toLowerCase();
+  if (q.includes("what can you do") || q.includes("feature") || q.includes("capability") || q.includes("capabilities") || q.includes("help me with") || q.includes("who are you")) {
+    return (
+      "**Namaste Anmol! I am Eklavya, your AI Scholarship Assistant.**\n\n" +
+      "Here is how I can assist you:\n" +
+      "• **Application Tracking:** Check real-time progress for Application #MP-2024-OBC-0208\n" +
+      "• **DBT & PFMS Disbursals:** Track direct bank transfers and tranche milestones\n" +
+      "• **DigiLocker Verification:** Verify caste and income certificates via state e-District\n" +
+      "• **Scheme Eligibility:** Discover eligible Central and State scholarship schemes\n" +
+      "• **Grievance Support:** Direct contact channels and district nodal assistance"
+    );
+  }
   if (q.includes("status") || q.includes("track") || q.includes("where") || q.includes("progress")) {
-    return "Application #MP-2024-OBC-0208 for Post-Matric OBC Scholarship is at Stage 4 (PFMS Batch Processing). College verification and District Welfare sanction are completed. Tranche 1 (₹ 22,500.00) is credited; Tranche 2 is in transit.";
+    return (
+      "**Scholarship Application Status**\n\n" +
+      "• **Application ID:** MP-2024-OBC-0208\n" +
+      "• **Scheme:** Post-Matric OBC Scholarship (Technical Degree)\n" +
+      "• **Current Stage:** Stage 4 (PFMS Batch Processing)\n" +
+      "• **Institute Verification:** Verified by Gyan Ganga College Of Technology\n" +
+      "• **District Sanction:** Approved & Sanction Order Generated\n" +
+      "• **Tranche 1 (₹ 22,500.00):** Credited to SBI Account (XXXX-XXXX-4109)\n" +
+      "• **Tranche 2 (₹ 22,500.00):** In PFMS transit to bank"
+    );
   }
   if (q.includes("dbt") || q.includes("payment") || q.includes("money") || q.includes("disburs") || q.includes("credit") || q.includes("bank")) {
-    return "Total sanctioned scholarship grant is ₹ 45,000.00. Tranche 1 of ₹ 22,500.00 was credited directly to your Aadhaar Seeded SBI Account (XXXX-XXXX-4109) via DBT. Tranche 2 is currently awaiting final bank clearance via PFMS.";
+    return (
+      "**Direct Benefit Transfer (DBT) Breakdown**\n\n" +
+      "• **Total Sanctioned Amount:** ₹ 45,000.00\n" +
+      "• **Disbursed (Tranche 1):** ₹ 22,500.00 (Credited via DBT)\n" +
+      "• **Pending (Tranche 2):** ₹ 22,500.00 (PFMS Clearing in progress)\n" +
+      "• **Credited Account:** Aadhaar Seeded SBI A/C (XXXX-XXXX-4109)\n" +
+      "• **NPCI Linkage:** Active & Verified"
+    );
   }
   if (q.includes("digilocker") || q.includes("document") || q.includes("cert") || q.includes("caste") || q.includes("income")) {
-    return "Your DigiLocker integration is active. Your OBC Caste Certificate (#MP-OBC-2023-88912) and Income Certificate (#MP-INC-2024-44102 for ₹ 1,80,000.00) are digitally verified with the Madhya Pradesh State e-District repository.";
+    return (
+      "**DigiLocker Verified Credentials**\n\n" +
+      "• **OBC Caste Certificate:** #MP-OBC-2023-88912 (Verified - MP e-District)\n" +
+      "• **Income Certificate:** #MP-INC-2024-44102 for ₹ 1,80,000.00 (Verified)\n" +
+      "• **Academic Records:** Class 10 & 12 Digital Marksheets (Verified)\n" +
+      "• **Verification Mode:** 100% Paperless API authentication"
+    );
   }
   if (q.includes("eligib") || q.includes("scheme") || q.includes("criteria") || q.includes("rule")) {
-    return "Based on your verified credentials (OBC Category, Family Income ₹ 1,80,000.00, GGCT Jabalpur), you are eligible for: 1) Post-Matric Scholarship for OBC Students (Technical Courses - ₹ 45,000.00/yr), and 2) Central Sector Scheme (CSSS - ₹ 20,000.00/yr).";
+    return (
+      "**Scheme Eligibility Assessment**\n\n" +
+      "• **1. Post-Matric Scholarship for OBC Students (Technical)**\n" +
+      "  - Annual Grant: ₹ 45,000.00 | Status: Eligible & Active\n" +
+      "• **2. Central Sector Scheme of Scholarship (CSSS)**\n" +
+      "  - Annual Grant: ₹ 20,000.00 | Status: Eligible (Merit > 80%)\n" +
+      "• **3. ST National Fellowship**\n" +
+      "  - Status: Ineligible (Applicable exclusively to Scheduled Tribe candidates)"
+    );
   }
   if (q.includes("college") || q.includes("nodal") || q.includes("institute") || q.includes("ggct") || q.includes("roll")) {
-    return "Your profile is registered with Gyan Ganga College Of Technology, Jabalpur under Roll Number 0208AD231011. College level verification was approved by the Institute Nodal Officer on 18 August 2024.";
+    return (
+      "**Institutional Verification Record**\n\n" +
+      "• **Institution:** Gyan Ganga College Of Technology (GGCT), Jabalpur\n" +
+      "• **Roll Number:** 0208AD231011\n" +
+      "• **Verification Date:** 18 August 2024\n" +
+      "• **Nodal Officer Status:** Endorsed & Forwarded to District Welfare Office"
+    );
   }
   if (q.includes("date") || q.includes("last date") || q.includes("deadline")) {
-    return "The closing deadline for Post-Matric OBC Scholarship fresh and renewal submissions for Academic Year 2024-25 is 15 November 2026. Institutional biometric KYC must be completed before 30 November 2026.";
+    return (
+      "**Important Scholarship Deadlines**\n\n" +
+      "• **Application Submission (Fresh & Renewal):** 15 November 2026\n" +
+      "• **Institutional Biometric e-KYC:** 30 November 2026\n" +
+      "• **District Sanction Cut-off:** 15 December 2026"
+    );
   }
   if (q.includes("grievance") || q.includes("complaint") || q.includes("help") || q.includes("contact") || q.includes("phone")) {
-    return "For grievance escalation, contact the District Backward Classes Welfare Office, Jabalpur, or call the National Scholarship Toll-Free Helpline at 1800-11-2026 (Mon-Sat, 9:00 AM - 6:00 PM).";
+    return (
+      "**Grievance & Support Desk**\n\n" +
+      "• **District Office:** Backward Classes & Minorities Welfare Office, Jabalpur\n" +
+      "• **National Helpline:** 1800-11-2026 (Mon-Sat, 9:00 AM - 6:00 PM)\n" +
+      "• **Institute Nodal:** Nodal Officer, GGCT Jabalpur\n" +
+      "• **Email Support:** scholarships-support@gov.in"
+    );
   }
   if (q.includes("hi") || q.includes("hello") || q.includes("namaste")) {
-    return "Namaste Anmol Soni! I am the Eklavya Citizen Helpdesk Assistant. You can ask me about your scholarship status, DBT payment progress, DigiLocker certificates, eligibility rules, or deadlines.";
+    return (
+      "**Namaste Anmol Soni!**\n\n" +
+      "I am **Eklavya**, your AI Scholarship Assistant. I can help you with application tracking, DBT payment progress, DigiLocker certificates, and scheme eligibility.\n\n" +
+      "How may I assist you today?"
+    );
   }
-  return `Regarding "${query}": Your verified candidate record (Anmol Soni, Roll 0208AD231011, OBC, GGCT) is mapped to the Post-Matric OBC Technical Scholarship. Tranche 1 (₹ 22,500.00) has been disbursed to your SBI account with Tranche 2 in PFMS transit. How else may I assist you?`;
+  return (
+    `**Query: ${query}**\n\n` +
+    "• **Candidate:** Anmol Soni (Roll: 0208AD231011, OBC, GGCT Jabalpur)\n" +
+    "• **Active Scholarship:** Post-Matric OBC Technical Scholarship (₹ 45,000.00)\n" +
+    "• **Payment Status:** Tranche 1 (₹ 22,500.00) credited to SBI A/C XXXX-XXXX-4109; Tranche 2 in PFMS transit.\n\n" +
+    "Please ask me about your status, payments, documents, or deadlines for more specific details."
+  );
 }
 
 async function sendUserChat() {
@@ -446,7 +539,7 @@ async function sendUserChat() {
     <div class="w-6 h-6 rounded bg-[#0a3d62] text-white flex items-center justify-center text-[10px] font-bold">
       <span class="material-symbols-outlined text-[13px]">support_agent</span>
     </div>
-    <div class="p-2">Helpdesk typing...</div>
+    <div class="p-2">Eklavya is typing...</div>
   `;
   chatList.appendChild(typingIndicator);
   chatList.scrollTop = chatList.scrollHeight;
@@ -481,8 +574,8 @@ async function sendUserChat() {
     <div class="w-6 h-6 rounded bg-[#0a3d62] text-white flex items-center justify-center text-[10px] font-bold flex-shrink-0">
       <span class="material-symbols-outlined text-[13px]">support_agent</span>
     </div>
-    <div class="bg-white p-2.5 rounded border border-slate-200 text-slate-800 text-xs max-w-[85%] leading-relaxed shadow-xs">
-      ${replyText}
+    <div class="bg-white p-2.5 rounded border border-slate-200 text-slate-800 text-xs max-w-[85%] leading-relaxed shadow-xs space-y-1">
+      ${formatBotResponse(replyText)}
     </div>
   `;
   chatList.appendChild(botMsg);

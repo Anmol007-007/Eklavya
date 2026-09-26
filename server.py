@@ -29,32 +29,99 @@ load_env()
 
 def generate_local_response(query):
     q = query.lower()
-    if any(k in q for k in ["status", "track", "milestone", "application", "where is", "progress"]):
-        return "Application #MP-2024-OBC-0208 for Post-Matric OBC Scholarship is currently at Stage 4 (PFMS Batch Processing). College verification and District Welfare sanction are completed. Tranche 1 (₹ 22,500.00) is credited; Tranche 2 (₹ 22,500.00) is in transit."
+    if any(k in q for k in ["what can you do", "feature", "capability", "capabilities", "help me with", "how to use", "who are you"]):
+        return (
+            "**Namaste Anmol! I am Eklavya, your AI Scholarship Assistant.**\n\n"
+            "Here is how I can assist you:\n"
+            "• **Application Tracking:** Check real-time progress for Application #MP-2024-OBC-0208\n"
+            "• **DBT & PFMS Disbursals:** Track direct bank transfers and tranche milestones\n"
+            "• **DigiLocker Verification:** Verify caste and income certificates via state e-District\n"
+            "• **Scheme Eligibility:** Discover eligible Central and State scholarship schemes\n"
+            "• **Grievance Support:** Direct contact channels and district nodal assistance"
+        )
+    elif any(k in q for k in ["status", "track", "milestone", "application", "where is", "progress"]):
+        return (
+            "**Scholarship Application Status**\n\n"
+            "• **Application ID:** MP-2024-OBC-0208\n"
+            "• **Scheme:** Post-Matric OBC Scholarship (Technical Degree)\n"
+            "• **Current Stage:** Stage 4 (PFMS Batch Processing)\n"
+            "• **Institute Verification:** Verified by Gyan Ganga College Of Technology\n"
+            "• **District Sanction:** Approved & Sanction Order Generated\n"
+            "• **Tranche 1 (₹ 22,500.00):** Credited to SBI Account (XXXX-XXXX-4109)\n"
+            "• **Tranche 2 (₹ 22,500.00):** In PFMS transit to bank"
+        )
     elif any(k in q for k in ["dbt", "payment", "money", "disburs", "credit", "account", "bank", "rupee", "amount"]):
-        return "Total sanctioned scholarship grant is ₹ 45,000.00. Tranche 1 of ₹ 22,500.00 was disbursed directly to your Aadhaar Seeded SBI Account (XXXX-XXXX-4109) via DBT. Tranche 2 is approved and awaiting final bank clearance via PFMS."
+        return (
+            "**Direct Benefit Transfer (DBT) Breakdown**\n\n"
+            "• **Total Sanctioned Amount:** ₹ 45,000.00\n"
+            "• **Disbursed (Tranche 1):** ₹ 22,500.00 (Credited via DBT)\n"
+            "• **Pending (Tranche 2):** ₹ 22,500.00 (PFMS Clearing in progress)\n"
+            "• **Credited Account:** Aadhaar Seeded SBI A/C (XXXX-XXXX-4109)\n"
+            "• **NPCI Linkage:** Active & Verified"
+        )
     elif any(k in q for k in ["digilocker", "document", "cert", "caste", "income", "upload", "verify"]):
-        return "Your DigiLocker link is active. OBC Caste Certificate (#MP-OBC-2023-88912) and Income Certificate (#MP-INC-2024-44102 for ₹ 1,80,000.00) have been digitally verified directly from Madhya Pradesh State e-District repository."
+        return (
+            "**DigiLocker Verified Credentials**\n\n"
+            "• **OBC Caste Certificate:** #MP-OBC-2023-88912 (Verified - MP e-District)\n"
+            "• **Income Certificate:** #MP-INC-2024-44102 for ₹ 1,80,000.00 (Verified)\n"
+            "• **Academic Records:** Class 10 & 12 Digital Marksheets (Verified)\n"
+            "• **Verification Mode:** 100% Paperless API authentication"
+        )
     elif any(k in q for k in ["eligib", "scheme", "apply", "rule", "criteria", "other scheme"]):
-        return "Based on your verified profile (OBC Category, Annual Family Income ₹ 1,80,000.00, GGCT Jabalpur), you are fully eligible for: 1) Post-Matric Scholarship for OBC Students (Technical Courses - ₹ 45,000.00/yr), and 2) Central Sector Scheme of Scholarship (CSSS - ₹ 20,000.00/yr). You are ineligible for ST National Fellowship."
+        return (
+            "**Scheme Eligibility Assessment**\n\n"
+            "• **1. Post-Matric Scholarship for OBC Students (Technical)**\n"
+            "  - Annual Grant: ₹ 45,000.00 | Status: Eligible & Active\n"
+            "• **2. Central Sector Scheme of Scholarship (CSSS)**\n"
+            "  - Annual Grant: ₹ 20,000.00 | Status: Eligible (Merit > 80%)\n"
+            "• **3. ST National Fellowship**\n"
+            "  - Status: Ineligible (Applicable exclusively to Scheduled Tribe candidates)"
+        )
     elif any(k in q for k in ["college", "nodal", "institute", "ggct", "gyan ganga", "roll"]):
-        return "Your profile is registered with Gyan Ganga College Of Technology (GGCT), Jabalpur under Roll Number 0208AD231011. Your verification was endorsed by the Institute Nodal Officer on 18 August 2024."
+        return (
+            "**Institutional Verification Record**\n\n"
+            "• **Institution:** Gyan Ganga College Of Technology (GGCT), Jabalpur\n"
+            "• **Roll Number:** 0208AD231011\n"
+            "• **Verification Date:** 18 August 2024\n"
+            "• **Nodal Officer Status:** Endorsed & Forwarded to District Welfare Office"
+        )
     elif any(k in q for k in ["deadline", "date", "last date", "when"]):
-        return "The deadline for Post-Matric OBC Scholarship fresh and renewal submissions for Academic Year 2024-25 is 15 November 2026. Institutional biometric KYC must be completed before 30 November 2026."
+        return (
+            "**Important Scholarship Deadlines**\n\n"
+            "• **Application Submission (Fresh & Renewal):** 15 November 2026\n"
+            "• **Institutional Biometric e-KYC:** 30 November 2026\n"
+            "• **District Sanction Cut-off:** 15 December 2026"
+        )
     elif any(k in q for k in ["grievance", "complaint", "help", "contact", "officer", "phone", "email"]):
-        return "For official assistance or grievance escalation, contact the District Backward Classes & Minorities Welfare Office, Jabalpur, or call the National Scholarship Toll-Free Helpline at 1800-11-2026 (Mon-Sat, 9:00 AM - 6:00 PM)."
+        return (
+            "**Grievance & Support Desk**\n\n"
+            "• **District Office:** Backward Classes & Minorities Welfare Office, Jabalpur\n"
+            "• **National Helpline:** 1800-11-2026 (Mon-Sat, 9:00 AM - 6:00 PM)\n"
+            "• **Institute Nodal:** Nodal Officer, GGCT Jabalpur\n"
+            "• **Email Support:** scholarships-support@gov.in"
+        )
     elif any(k in q for k in ["hi", "hello", "namaste", "hey"]):
-        return "Namaste Anmol Soni! I am the Eklavya Citizen Helpdesk Assistant. You can ask me about your scholarship status, DBT payment progress, DigiLocker certificates, eligibility rules, or deadlines."
+        return (
+            "**Namaste Anmol Soni!**\n\n"
+            "I am **Eklavya**, your AI Scholarship Assistant. I can help you with application tracking, DBT payment progress, DigiLocker certificates, and scheme eligibility.\n\n"
+            "How may I assist you today?"
+        )
     else:
-        return f"Regarding your query on '{query}': Your verified candidate record (Anmol Soni, Roll 0208AD231011, OBC, GGCT) is mapped to the Post-Matric OBC Technical Scholarship. Your Aadhaar seeded SBI account (XXXX-XXXX-4109) has received ₹ 22,500.00 with the remaining grant in PFMS transit. How else may I assist you?"
+        return (
+            f"**Query: {query}**\n\n"
+            "• **Candidate:** Anmol Soni (Roll: 0208AD231011, OBC, GGCT Jabalpur)\n"
+            "• **Active Scholarship:** Post-Matric OBC Technical Scholarship (₹ 45,000.00)\n"
+            "• **Payment Status:** Tranche 1 (₹ 22,500.00) credited to SBI A/C XXXX-XXXX-4109; Tranche 2 in PFMS transit.\n\n"
+            "Please ask me about your status, payments, documents, or deadlines for more specific details."
+        )
 
 def call_gemini_api(api_key, query):
-    url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key={api_key}"
+    models = ["gemini-flash-latest", "gemini-2.5-flash", "gemini-pro-latest", "gemini-1.5-flash"]
     system_instruction = (
-        "You are the official Eklavya Citizen Helpdesk Assistant for the Ministry of Tribal Affairs and Ministry of Social Justice, Government of India. "
+        "You are 'Eklavya', the official AI Scholarship Assistant for the Ministry of Tribal Affairs and Ministry of Social Justice, Government of India. "
         "User context: Candidate Anmol Soni, DOB 03/03/2005, Roll 0208AD231011, College Gyan Ganga College Of Technology (GGCT), Category OBC, Annual Income ₹ 1,80,000.00. "
         "Active Scholarship: Post-Matric Scholarship for OBC Students (Technical Courses). Grant: ₹ 45,000.00 total. Tranche 1 (₹ 22,500.00) disbursed to Aadhaar Seeded SBI Account XXXX-XXXX-4109. Tranche 2 in PFMS processing. "
-        "Answer questions politely, accurately, concisely, in official sovereign tone. Answer in English or Hindi as requested."
+        "Formatting instructions: Always structure your responses with crisp headings and clear bullet points (•). Highlight key amounts, IDs, and statuses in bold. Keep the tone official, polite, and concise."
     )
     payload = {
         "contents": [
@@ -65,26 +132,33 @@ def call_gemini_api(api_key, query):
             }
         ]
     }
-    req = urllib.request.Request(
-        url,
-        data=json.dumps(payload).encode("utf-8"),
-        headers={"Content-Type": "application/json"}
-    )
-    with urllib.request.urlopen(req, timeout=10) as resp:
-        data = json.loads(resp.read().decode("utf-8"))
-        candidates = data.get("candidates", [])
-        if candidates:
-            parts = candidates[0].get("content", {}).get("parts", [])
-            if parts:
-                return parts[0].get("text", "")
+    data_bytes = json.dumps(payload).encode("utf-8")
+    for model in models:
+        url = f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent?key={api_key}"
+        try:
+            req = urllib.request.Request(
+                url,
+                data=data_bytes,
+                headers={"Content-Type": "application/json"}
+            )
+            with urllib.request.urlopen(req, timeout=12) as resp:
+                data = json.loads(resp.read().decode("utf-8"))
+                candidates = data.get("candidates", [])
+                if candidates:
+                    parts = candidates[0].get("content", {}).get("parts", [])
+                    if parts:
+                        return parts[0].get("text", "")
+        except Exception:
+            continue
     return generate_local_response(query)
 
 def call_openai_api(api_key, query):
     url = "https://api.openai.com/v1/chat/completions"
     system_instruction = (
-        "You are the official Eklavya Citizen Helpdesk Assistant for the Ministry of Tribal Affairs and Ministry of Social Justice, Government of India. "
+        "You are 'Eklavya', the official AI Scholarship Assistant for the Ministry of Tribal Affairs and Ministry of Social Justice, Government of India. "
         "User context: Candidate Anmol Soni, DOB 03/03/2005, Roll 0208AD231011, College Gyan Ganga College Of Technology (GGCT), Category OBC, Annual Income ₹ 1,80,000.00. "
-        "Active Scholarship: Post-Matric Scholarship for OBC Students (Technical Courses). Grant: ₹ 45,000.00 total. Tranche 1 (₹ 22,500.00) disbursed to Aadhaar Seeded SBI Account XXXX-XXXX-4109. Tranche 2 in PFMS processing."
+        "Active Scholarship: Post-Matric Scholarship for OBC Students (Technical Courses). Grant: ₹ 45,000.00 total. Tranche 1 (₹ 22,500.00) disbursed to Aadhaar Seeded SBI Account XXXX-XXXX-4109. Tranche 2 in PFMS processing. "
+        "Formatting instructions: Always structure your responses with crisp headings and clear bullet points (•). Highlight key amounts, IDs, and statuses in bold. Keep the tone official, polite, and concise."
     )
     payload = {
         "model": "gpt-4o-mini",
@@ -164,5 +238,10 @@ class CustomHandler(http.server.SimpleHTTPRequestHandler):
 
 if __name__ == '__main__':
     os.chdir(DIRECTORY)
+    socketserver.TCPServer.allow_reuse_address = True
+    print(f"Serving Eklavya Portal on port {PORT} -> http://localhost:{PORT}")
     with socketserver.TCPServer(("", PORT), CustomHandler) as httpd:
-        httpd.serve_forever()
+        try:
+            httpd.serve_forever()
+        except KeyboardInterrupt:
+            pass
