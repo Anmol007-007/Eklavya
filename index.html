@@ -845,11 +845,11 @@
         </div>
       </div>
     </div>
-    <div class="p-2 bg-white border-t border-slate-200 flex items-center space-x-1.5">
+    <div id="chatInputArea" class="p-2 bg-white border-t border-slate-200 flex items-center space-x-1.5">
       <input id="chatInputText" type="text" placeholder="Type here..."
-        class="flex-1 text-xs border border-slate-300 rounded px-2.5 py-1.5 outline-none focus:border-[#0a3d62]"
+        class="flex-1 text-xs border border-slate-300 rounded px-2.5 py-1.5 outline-none text-slate-900 bg-white focus:border-[#0a3d62]"
         onkeydown="if(event.key==='Enter') sendUserChat()" />
-      <button onclick="sendUserChat()" class="p-1.5 bg-[#0a3d62] text-white rounded hover:bg-[#072a44] transition"
+      <button onclick="sendUserChat()" class="p-1.5 bg-[#0a3d62] text-white rounded hover:bg-[#072a44] transition flex-shrink-0"
         title="Send Query">
         <span class="material-symbols-outlined text-[16px]">send</span>
       </button>
