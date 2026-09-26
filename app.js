@@ -546,12 +546,21 @@ async function sendUserChat() {
 
   let replyText = "";
   try {
-    const res = await fetch("/api/chat", {
+    let res = await fetch("/api/chat", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: jsonString({ message: query })
-    });
-    if (res.ok) {
+    }).catch(() => null);
+
+    if (!res || !res.ok) {
+      res = await fetch("http://localhost:8000/api/chat", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: jsonString({ message: query })
+      }).catch(() => null);
+    }
+
+    if (res && res.ok) {
       const data = await res.json();
       if (data && data.reply) {
         replyText = data.reply;

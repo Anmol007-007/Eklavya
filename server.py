@@ -31,87 +31,87 @@ def generate_local_response(query):
     q = query.lower()
     if any(k in q for k in ["what can you do", "feature", "capability", "capabilities", "help me with", "how to use", "who are you"]):
         return (
-            "**Namaste Anmol! I am Eklavya, your AI Scholarship Assistant.**\n\n"
+            "Namaste Anmol! I am Eklavya, your AI Scholarship Assistant.\n\n"
             "Here is how I can assist you:\n"
-            "• **Application Tracking:** Check real-time progress for Application #MP-2024-OBC-0208\n"
-            "• **DBT & PFMS Disbursals:** Track direct bank transfers and tranche milestones\n"
-            "• **DigiLocker Verification:** Verify caste and income certificates via state e-District\n"
-            "• **Scheme Eligibility:** Discover eligible Central and State scholarship schemes\n"
-            "• **Grievance Support:** Direct contact channels and district nodal assistance"
+            "• Application Tracking: Check real-time progress for Application #MP-2024-OBC-0208\n"
+            "• DBT & PFMS Disbursals: Track direct bank transfers and tranche milestones\n"
+            "• DigiLocker Verification: Verify caste and income certificates via state e-District\n"
+            "• Scheme Eligibility: Discover eligible Central and State scholarship schemes\n"
+            "• Grievance Support: Direct contact channels and district nodal assistance"
         )
     elif any(k in q for k in ["status", "track", "milestone", "application", "where is", "progress"]):
         return (
-            "**Scholarship Application Status**\n\n"
-            "• **Application ID:** MP-2024-OBC-0208\n"
-            "• **Scheme:** Post-Matric OBC Scholarship (Technical Degree)\n"
-            "• **Current Stage:** Stage 4 (PFMS Batch Processing)\n"
-            "• **Institute Verification:** Verified by Gyan Ganga College Of Technology\n"
-            "• **District Sanction:** Approved & Sanction Order Generated\n"
-            "• **Tranche 1 (₹ 22,500.00):** Credited to SBI Account (XXXX-XXXX-4109)\n"
-            "• **Tranche 2 (₹ 22,500.00):** In PFMS transit to bank"
+            "Scholarship Application Status\n\n"
+            "• Application ID: MP-2024-OBC-0208\n"
+            "• Scheme: Post-Matric OBC Scholarship (Technical Degree)\n"
+            "• Current Stage: Stage 4 (PFMS Batch Processing)\n"
+            "• Institute Verification: Verified by Gyan Ganga College Of Technology\n"
+            "• District Sanction: Approved & Sanction Order Generated\n"
+            "• Tranche 1 (₹ 22,500.00): Credited to SBI Account (XXXX-XXXX-4109)\n"
+            "• Tranche 2 (₹ 22,500.00): In PFMS transit to bank"
         )
     elif any(k in q for k in ["dbt", "payment", "money", "disburs", "credit", "account", "bank", "rupee", "amount"]):
         return (
-            "**Direct Benefit Transfer (DBT) Breakdown**\n\n"
-            "• **Total Sanctioned Amount:** ₹ 45,000.00\n"
-            "• **Disbursed (Tranche 1):** ₹ 22,500.00 (Credited via DBT)\n"
-            "• **Pending (Tranche 2):** ₹ 22,500.00 (PFMS Clearing in progress)\n"
-            "• **Credited Account:** Aadhaar Seeded SBI A/C (XXXX-XXXX-4109)\n"
-            "• **NPCI Linkage:** Active & Verified"
+            "Direct Benefit Transfer (DBT) Breakdown\n\n"
+            "• Total Sanctioned Amount: ₹ 45,000.00\n"
+            "• Disbursed (Tranche 1): ₹ 22,500.00 (Credited via DBT)\n"
+            "• Pending (Tranche 2): ₹ 22,500.00 (PFMS Clearing in progress)\n"
+            "• Credited Account: Aadhaar Seeded SBI A/C (XXXX-XXXX-4109)\n"
+            "• NPCI Linkage: Active & Verified"
         )
     elif any(k in q for k in ["digilocker", "document", "cert", "caste", "income", "upload", "verify"]):
         return (
-            "**DigiLocker Verified Credentials**\n\n"
-            "• **OBC Caste Certificate:** #MP-OBC-2023-88912 (Verified - MP e-District)\n"
-            "• **Income Certificate:** #MP-INC-2024-44102 for ₹ 1,80,000.00 (Verified)\n"
-            "• **Academic Records:** Class 10 & 12 Digital Marksheets (Verified)\n"
-            "• **Verification Mode:** 100% Paperless API authentication"
+            "DigiLocker Verified Credentials\n\n"
+            "• OBC Caste Certificate: #MP-OBC-2023-88912 (Verified - MP e-District)\n"
+            "• Income Certificate: #MP-INC-2024-44102 for ₹ 1,80,000.00 (Verified)\n"
+            "• Academic Records: Class 10 & 12 Digital Marksheets (Verified)\n"
+            "• Verification Mode: 100% Paperless API authentication"
         )
     elif any(k in q for k in ["eligib", "scheme", "apply", "rule", "criteria", "other scheme"]):
         return (
-            "**Scheme Eligibility Assessment**\n\n"
-            "• **1. Post-Matric Scholarship for OBC Students (Technical)**\n"
+            "Scheme Eligibility Assessment\n\n"
+            "• 1. Post-Matric Scholarship for OBC Students (Technical)\n"
             "  - Annual Grant: ₹ 45,000.00 | Status: Eligible & Active\n"
-            "• **2. Central Sector Scheme of Scholarship (CSSS)**\n"
+            "• 2. Central Sector Scheme of Scholarship (CSSS)\n"
             "  - Annual Grant: ₹ 20,000.00 | Status: Eligible (Merit > 80%)\n"
-            "• **3. ST National Fellowship**\n"
+            "• 3. ST National Fellowship\n"
             "  - Status: Ineligible (Applicable exclusively to Scheduled Tribe candidates)"
         )
     elif any(k in q for k in ["college", "nodal", "institute", "ggct", "gyan ganga", "roll"]):
         return (
-            "**Institutional Verification Record**\n\n"
-            "• **Institution:** Gyan Ganga College Of Technology (GGCT), Jabalpur\n"
-            "• **Roll Number:** 0208AD231011\n"
-            "• **Verification Date:** 18 August 2024\n"
-            "• **Nodal Officer Status:** Endorsed & Forwarded to District Welfare Office"
+            "Institutional Verification Record\n\n"
+            "• Institution: Gyan Ganga College Of Technology (GGCT), Jabalpur\n"
+            "• Roll Number: 0208AD231011\n"
+            "• Verification Date: 18 August 2024\n"
+            "• Nodal Officer Status: Endorsed & Forwarded to District Welfare Office"
         )
     elif any(k in q for k in ["deadline", "date", "last date", "when"]):
         return (
-            "**Important Scholarship Deadlines**\n\n"
-            "• **Application Submission (Fresh & Renewal):** 15 November 2026\n"
-            "• **Institutional Biometric e-KYC:** 30 November 2026\n"
-            "• **District Sanction Cut-off:** 15 December 2026"
+            "Important Scholarship Deadlines\n\n"
+            "• Application Submission (Fresh & Renewal): 15 November 2026\n"
+            "• Institutional Biometric e-KYC: 30 November 2026\n"
+            "• District Sanction Cut-off: 15 December 2026"
         )
     elif any(k in q for k in ["grievance", "complaint", "help", "contact", "officer", "phone", "email"]):
         return (
-            "**Grievance & Support Desk**\n\n"
-            "• **District Office:** Backward Classes & Minorities Welfare Office, Jabalpur\n"
-            "• **National Helpline:** 1800-11-2026 (Mon-Sat, 9:00 AM - 6:00 PM)\n"
-            "• **Institute Nodal:** Nodal Officer, GGCT Jabalpur\n"
-            "• **Email Support:** scholarships-support@gov.in"
+            "Grievance & Support Desk\n\n"
+            "• District Office: Backward Classes & Minorities Welfare Office, Jabalpur\n"
+            "• National Helpline: 1800-11-2026 (Mon-Sat, 9:00 AM - 6:00 PM)\n"
+            "• Institute Nodal: Nodal Officer, GGCT Jabalpur\n"
+            "• Email Support: scholarships-support@gov.in"
         )
     elif any(k in q for k in ["hi", "hello", "namaste", "hey"]):
         return (
-            "**Namaste Anmol Soni!**\n\n"
-            "I am **Eklavya**, your AI Scholarship Assistant. I can help you with application tracking, DBT payment progress, DigiLocker certificates, and scheme eligibility.\n\n"
+            "Namaste Anmol Soni!\n\n"
+            "I am Eklavya, your AI Scholarship Assistant. I can help you with application tracking, DBT payment progress, DigiLocker certificates, and scheme eligibility.\n\n"
             "How may I assist you today?"
         )
     else:
         return (
-            f"**Query: {query}**\n\n"
-            "• **Candidate:** Anmol Soni (Roll: 0208AD231011, OBC, GGCT Jabalpur)\n"
-            "• **Active Scholarship:** Post-Matric OBC Technical Scholarship (₹ 45,000.00)\n"
-            "• **Payment Status:** Tranche 1 (₹ 22,500.00) credited to SBI A/C XXXX-XXXX-4109; Tranche 2 in PFMS transit.\n\n"
+            f"Query: {query}\n\n"
+            "• Candidate: Anmol Soni (Roll: 0208AD231011, OBC, GGCT Jabalpur)\n"
+            "• Active Scholarship: Post-Matric OBC Technical Scholarship (₹ 45,000.00)\n"
+            "• Payment Status: Tranche 1 (₹ 22,500.00) credited to SBI A/C XXXX-XXXX-4109; Tranche 2 in PFMS transit.\n\n"
             "Please ask me about your status, payments, documents, or deadlines for more specific details."
         )
 
@@ -141,15 +141,19 @@ def call_gemini_api(api_key, query):
                 data=data_bytes,
                 headers={"Content-Type": "application/json"}
             )
-            with urllib.request.urlopen(req, timeout=12) as resp:
+            with urllib.request.urlopen(req, timeout=25) as resp:
                 data = json.loads(resp.read().decode("utf-8"))
                 candidates = data.get("candidates", [])
                 if candidates:
                     parts = candidates[0].get("content", {}).get("parts", [])
                     if parts:
-                        return parts[0].get("text", "")
-        except Exception:
+                        text_val = parts[0].get("text", "").strip()
+                        if text_val:
+                            return text_val
+        except Exception as e:
+            print(f"[Gemini Exception]: model={model} error={type(e)} {e}", flush=True)
             continue
+    print("[Gemini Fallback] Falling back to local response", flush=True)
     return generate_local_response(query)
 
 def call_openai_api(api_key, query):
