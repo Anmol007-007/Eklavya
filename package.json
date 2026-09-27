@@ -1,6 +1,7 @@
 {
   "name": "eklavya-tribal-scholarship",
   "version": "1.0.0",
+  "type": "module",
   "private": true,
   "description": "Unified Scholarship Mobile Application for Tribal Students (Ministry of Tribal Affairs) - SIH26238",
   "scripts": {

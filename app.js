@@ -235,6 +235,7 @@ function alertScreenReaderInfo() {
 function toggleProfileDropdown(e) {
   if (e) e.stopPropagation();
   const dropdown = document.getElementById('profileDropdown');
+  if (!dropdown) return;
   appState.isProfileMenuOpen = !appState.isProfileMenuOpen;
   if (appState.isProfileMenuOpen) {
     dropdown.classList.remove('hidden');
@@ -246,14 +247,15 @@ function toggleProfileDropdown(e) {
 function toggleSideMenu() {
   const drawer = document.getElementById('sideNavDrawer');
   const overlay = document.getElementById('sideNavOverlay');
+  if (!drawer) return;
   appState.isSideMenuOpen = !appState.isSideMenuOpen;
 
   if (appState.isSideMenuOpen) {
     drawer.classList.remove('-translate-x-full');
-    overlay.classList.remove('hidden');
+    if (overlay) overlay.classList.remove('hidden');
   } else {
     drawer.classList.add('-translate-x-full');
-    overlay.classList.add('hidden');
+    if (overlay) overlay.classList.add('hidden');
   }
 }
 
@@ -372,7 +374,7 @@ function onSchemeSelectionChange(selectedVal) {
 function toggleLanguageMenu(e) {
   if (e) e.stopPropagation();
   const dropdown = document.getElementById('langDropdown');
-  dropdown.classList.toggle('hidden');
+  if (dropdown) dropdown.classList.toggle('hidden');
 }
 
 function setLanguage(langCode) {
@@ -1031,10 +1033,12 @@ function showEligibilityDetails(schemeName) {
 
 function toggleSahayakChat() {
   const modal = document.getElementById('sahayakChatModal');
+  if (!modal) return;
   appState.isChatOpen = !appState.isChatOpen;
   if (appState.isChatOpen) {
     modal.classList.remove('hidden');
-    document.getElementById('chatInputText').focus();
+    const input = document.getElementById('chatInputText');
+    if (input) input.focus();
   } else {
     modal.classList.add('hidden');
   }
@@ -1066,7 +1070,7 @@ function formatBotResponse(text) {
 }
 
 function generateLocalChatAnswer(query) {
-  const q = query.toLowerCase();
+  const q = (query || '').toLowerCase();
   if (q.includes("what can you do") || q.includes("feature") || q.includes("capability") || q.includes("capabilities") || q.includes("help me with") || q.includes("who are you")) {
     return (
       "**Namaste Anmol! I am Eklavya, your AI Scholarship Assistant.**\n\n" +
@@ -1164,10 +1168,11 @@ function generateLocalChatAnswer(query) {
 
 async function sendUserChat() {
   const input = document.getElementById('chatInputText');
-  const query = input.value.trim();
+  const query = input ? input.value.trim() : '';
   if (!query) return;
 
   const chatList = document.getElementById('chatMessageList');
+  if (!chatList) return;
 
   const userMsg = document.createElement('div');
   userMsg.className = "flex items-start justify-end space-x-2";
@@ -1195,19 +1200,11 @@ async function sendUserChat() {
 
   let replyText = "";
   try {
-    let res = await fetch("/api/chat", {
+    const res = await fetch("/api/chat", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: jsonString({ message: query })
-    }).catch(() => null);
-
-    if (!res || !res.ok) {
-      res = await fetch("http://localhost:8000/api/chat", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: jsonString({ message: query })
-      }).catch(() => null);
-    }
+      body: JSON.stringify({ message: query })
+    });
 
     if (res && res.ok) {
       const data = await res.json();
