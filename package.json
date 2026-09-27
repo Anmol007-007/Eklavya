@@ -4,11 +4,6 @@
   "private": true,
   "description": "Unified Scholarship Mobile Application for Tribal Students (Ministry of Tribal Affairs) - SIH26238",
   "scripts": {
-    "dev": "vite --port 3000 --host",
-    "build": "vite build",
-    "preview": "vite preview"
-  },
-  "devDependencies": {
-    "vite": "^5.4.2"
+    "start": "python server.py"
   }
 }
